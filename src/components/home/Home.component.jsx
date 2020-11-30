@@ -6,12 +6,14 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Header from './../header/Header.component';
 import './Home.styles.css';
+import ImageHeader from '../imageHeader/ImageHeader';
 const Home = () => {
   return (
     <Paper>
       <Container maxWidth="md">
         <Grid container direction="column">
           <Header />
+          <ImageHeader/>
           <Box className="box">
             <Paper>
               <Typography>

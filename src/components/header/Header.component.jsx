@@ -2,7 +2,6 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar'
 import Grid from '@material-ui/core/Grid'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
 import SwitchTheme from './../switchTheme/switchTheme.component';
 import NavMenu from '../navMenu/NavMenu.component';
 const Header = () => {
@@ -11,7 +10,7 @@ const Header = () => {
       <Toolbar>
         <Grid container direction="row" justify="space-between" alignItems="center">
           <Grid item>
-            <Typography variant="h6">Grievance System VCET</Typography>
+            <h3>VCET</h3>
           </Grid>
           <Grid item>
               <Grid container direction="row" alignItems="center">
