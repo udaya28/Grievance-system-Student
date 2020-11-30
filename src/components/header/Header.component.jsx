@@ -4,7 +4,7 @@ import SwitchTheme from './../switchTheme/switchTheme.component';
 import NavMenu from '../navMenu/NavMenu.component';
 const Header = () => {
   return (
-    <AppBar position="fixed" color="default">
+    <AppBar position="fixed" color="default" >
       <Toolbar>
         <Grid container direction="row" justify="space-between" alignItems="center">
           <Grid item>

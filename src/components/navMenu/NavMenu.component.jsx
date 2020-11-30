@@ -1,8 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
+import { IconButton } from '@material-ui/core';
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -16,19 +18,31 @@ export default function NavMenu() {
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
-      </Button>
+      <IconButton id="simple-menu" onClick={handleClick}>
+        <SettingsRoundedIcon />
+      </IconButton>
       <Menu
-        id="simple-menu"
+        id="menu-list-grow"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        getContentAnchorEl={null}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <AccountCircleRoundedIcon /> &nbsp;&nbsp;&nbsp;Profile
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <ExitToAppRoundedIcon /> &nbsp;&nbsp;&nbsp;Logout
+        </MenuItem>
       </Menu>
     </div>
   );
