@@ -1,10 +1,9 @@
 import React from 'react';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
-import {  IconButton } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
 
-
-import {SetThemes} from './../../context/theme'
+import { SetThemes } from './../../context/theme';
 
 const SwitchTheme = () => {
   const [Theme, setTheme] = React.useState(false);
@@ -12,14 +11,13 @@ const SwitchTheme = () => {
 
   const changeTheme = () => {
     setTheme(!Theme);
-    setDarkMode(!Theme)
+    setDarkMode(!Theme);
   };
-
 
   return (
     <>
-      <IconButton onClick={changeTheme} >
-          {Theme? <Brightness7Icon/>:<Brightness4Icon/>}
+      <IconButton onClick={changeTheme}>
+        {Theme ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
     </>
   );

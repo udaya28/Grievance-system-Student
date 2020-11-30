@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
-import { IconButton } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 

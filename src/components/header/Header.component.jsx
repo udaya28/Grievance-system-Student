@@ -1,5 +1,8 @@
 import React from 'react';
-import { AppBar, Grid, Toolbar, Typography } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar'
+import Grid from '@material-ui/core/Grid'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 import SwitchTheme from './../switchTheme/switchTheme.component';
 import NavMenu from '../navMenu/NavMenu.component';
 const Header = () => {
