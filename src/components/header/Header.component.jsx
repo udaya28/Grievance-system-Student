@@ -10,7 +10,7 @@ const Header = () => {
       <Toolbar>
         <Grid container direction="row" justify="space-between" alignItems="center">
           <Grid item>
-            <h3>VCET</h3>
+            <h3 className="mon">VCET</h3>
           </Grid>
           <Grid item>
               <Grid container direction="row" alignItems="center">

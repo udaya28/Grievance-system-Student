@@ -13,7 +13,7 @@ const Home = () => {
       <ImageHeader />
       <Container maxWidth="md">
         <Grid container direction="column">
-          <Box className="box">
+          <Box className="box" >
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Cupiditate voluptates minima ea error sunt nam fuga consectetur?
