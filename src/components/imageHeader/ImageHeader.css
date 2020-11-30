@@ -1,5 +1,5 @@
 .image-container{
-    margin-top: 80px;
+    margin-top: 55px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -11,5 +11,10 @@
     background-position: center center;   
     color: white !important;
     
+}
+@media only screen and (max-width: 600px) {
+    .image-container{
+        height: 40vh;
+    }
 }
 
