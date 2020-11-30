@@ -15,13 +15,13 @@ code {
 }
 
 
-.mon{
+.mon,h1{
   font-family: 'Montserrat', sans-serif;
   /* color: #333333; */
 
 }
 
-.pop{
+.pop, p{
   font-family: 'Poppins', sans-serif;
-  /* color: #666666; */
+  /* color: #050505; */
 }
