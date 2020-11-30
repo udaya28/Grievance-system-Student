@@ -19,7 +19,7 @@ const SwitchTheme = () => {
   return (
     <>
       <IconButton onClick={changeTheme} >
-          {Theme? <Brightness4Icon/>:<Brightness7Icon/>}
+          {Theme? <Brightness7Icon/>:<Brightness4Icon/>}
       </IconButton>
     </>
   );
