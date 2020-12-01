@@ -6,6 +6,7 @@ import Header from './../header/Header.component';
 import './Home.styles.css';
 import ImageHeader from '../imageHeader/ImageHeader';
 import Details from './../details/Details.component';
+import GrievanceForm from '../grievanceForm/GrievanceForm';
 const Home = () => {
   return (
     <Paper>
@@ -14,6 +15,7 @@ const Home = () => {
       <Container maxWidth="md">
         <Grid container direction="column">
           <Details />
+          <GrievanceForm/>
         </Grid>
       </Container>
     </Paper>

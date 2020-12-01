@@ -3,7 +3,7 @@ import './Details.styles.css';
 const Details = () => {
   return (
     <div className="details">
-      <h1>Grievance Cell</h1>
+      <h1 className="form-head">Grievance Cell</h1>
       <p>
         &nbsp; &nbsp; &nbsp; &nbsp;The cell functions to look into the
         grievances lodged by any student. Students may approach the cell to
@@ -115,6 +115,38 @@ const Details = () => {
           and misconduct.
         </li>
       </ul>
+      <h1>Committee Members</h1>
+      <div className="table">
+      <table  >
+        <tr>
+          <th>Name</th>
+          <th>Designation</th>
+          
+        </tr>
+        <tr>
+          <td>Dr. Tharun Kumar</td>
+          <td>Principal </td>
+        </tr>
+        <tr>
+          <td>Dr. Nithesh Prawin</td>
+          <td>Assistant professor, Dept. of Computer Science </td>
+        </tr>
+        <tr>
+          <td>Dr. Vaishnavi Suvetha</td>
+          <td>Assistant professor, Dept. of Computer Science </td>
+        </tr>
+        <tr>
+          <td>Dr. Sathiyasri</td>
+          <td>Assistant professor, Dept. of Computer Science </td>
+        </tr>
+        <tr>
+          <td>Mr. Udaya</td>
+          <td>Assistant professor, Dept. of Computer Science </td>
+        </tr>
+        
+      </table>
+      </div>
+      
     </div>
   );
 };
