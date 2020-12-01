@@ -3,8 +3,8 @@ import './ImageHeader.css'
 
 const ImageHeader = () => (
     <div className="image-container">
-        <h1>STUDENTS' GRIEVANCE CELL</h1>
-        <h2>VCET</h2>
+        <h1 style={{fontSize:"30px"}}>STUDENTS' GRIEVANCE CELL</h1>
+        <h2 style={{fontSize:"20px"}}>VCET</h2>
     </div>
     
 );

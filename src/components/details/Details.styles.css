@@ -5,8 +5,22 @@
 
 @media only screen and (max-width: 600px) {
     .details{
-        padding: 0px 5px;
+        padding: 0px 0px;
         text-align: justify;
+    }
+    p{
+        margin: 0px;
+    }
+    p,li{
+        font-size: smaller;
+
+    }
+    ul{
+        /* padding-left: 15px; */
+    }
+    h1{
+        font-size: large;
+        margin: 10px 0px;
     }
 }
 ul{
