@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import SignIn from './components/login/login.component';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { SetThemes } from './context/theme';
+import { SetThemes ,setLogin } from './context/context';
 import Home from './components/home/Home.component';
 function App() {
-  const [DarkMode, setDarkMode] = useState(true);
-  const [IsLoggedIn, setIsLoggedIn] = useState(true);
+  const [DarkMode, setDarkMode] = useState(false);
+  const [IsLoggedIn, setIsLoggedIn] = useState(false);
   const theme = createMuiTheme({
     palette: {
       type: DarkMode ? 'dark' : 'light',
@@ -17,7 +17,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <SetThemes.Provider value={setDarkMode}>
+        <setLogin.Provider value={setIsLoggedIn}>
         <div className="App">{IsLoggedIn ? <Home /> : <SignIn />}</div>
+        </setLogin.Provider>
       </SetThemes.Provider>
     </ThemeProvider>
   );

@@ -3,15 +3,16 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import IconButton from '@material-ui/core/IconButton';
 
-import { SetThemes } from './../../context/theme';
+import { SetThemes } from '../../context/context';
 
 const SwitchTheme = () => {
   const [Theme, setTheme] = React.useState(false);
   const setDarkMode = React.useContext(SetThemes);
 
   const changeTheme = () => {
-    setTheme(!Theme);
     setDarkMode(!Theme);
+    setTheme(!Theme);
+    
   };
 
   return (

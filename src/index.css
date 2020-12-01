@@ -21,7 +21,7 @@ code {
 
 }
 
-.pop, p{
+.pop, p ,li{
   font-family: 'Poppins', sans-serif;
   /* color: #050505; */
 }

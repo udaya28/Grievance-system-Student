@@ -9,19 +9,23 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import {  makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
-import SwitchTheme from './../switchTheme/switchTheme.component'
+import SwitchTheme from './../switchTheme/switchTheme.component';
+import { setLogin } from '../../context/context';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80")',
+    backgroundImage:
+      'url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80")',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+      theme.palette.type === 'light'
+        ? theme.palette.grey[50]
+        : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -44,17 +48,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-const SignIn = () =>  {
+const SignIn = () => {
   const classes = useStyles();
+  const setIsLoggedIn = React.useContext(setLogin);
+
+  const handleSignIn = () => {
+    setIsLoggedIn(true);
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <Grid container  justify="flex-end" style={{paddingTop:"10px" , paddingRight:"15px"}} >
-        <SwitchTheme/>
+        <Grid
+          container
+          justify="flex-end"
+          style={{ paddingTop: '10px', paddingRight: '15px' }}
+        >
+          <SwitchTheme />
         </Grid>
 
         <div className={classes.paper}>
@@ -87,19 +99,20 @@ const SignIn = () =>  {
               id="password"
               autoComplete="current-password"
             />
-            <Grid container justify-content="flex-start" >
-                <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            <Grid container justify-content="flex-start">
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
             </Grid>
-            
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={handleSignIn}
             >
               Sign In
             </Button>
@@ -108,6 +121,6 @@ const SignIn = () =>  {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default SignIn;

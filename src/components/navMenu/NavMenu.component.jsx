@@ -5,8 +5,12 @@ import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import IconButton from '@material-ui/core/IconButton';
+import {setLogin} from './../../context/context'
+
+
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const setIsLoggedIn = React.useContext(setLogin);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -15,6 +19,11 @@ export default function NavMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const signOut = () =>{
+    handleClose();
+    setIsLoggedIn(false);
+  }
+
 
   return (
     <div>
@@ -40,7 +49,7 @@ export default function NavMenu() {
         <MenuItem onClick={handleClose}>
           <AccountCircleRoundedIcon /> &nbsp;&nbsp;&nbsp;Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={signOut}>
           <ExitToAppRoundedIcon /> &nbsp;&nbsp;&nbsp;Logout
         </MenuItem>
       </Menu>
