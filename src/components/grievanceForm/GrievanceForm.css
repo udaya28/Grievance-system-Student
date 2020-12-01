@@ -4,6 +4,7 @@
 
 .form{
     margin: 20px 0px;
+    text-align: left;
     
 }
 .form-group{
@@ -14,4 +15,5 @@
 }
 .single{
     margin: 10px 0px !important;
+    width: 100%;
 }

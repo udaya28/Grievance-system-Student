@@ -14,8 +14,9 @@ const Home = () => {
       <ImageHeader />
       <Container maxWidth="md">
         <Grid container direction="column">
+        <GrievanceForm/>
           <Details />
-          <GrievanceForm/>
+          
         </Grid>
       </Container>
     </Paper>
