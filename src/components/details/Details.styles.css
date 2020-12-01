@@ -28,5 +28,5 @@ ul{
 }
 
  .details ul li:before {
-    content: '✓  ';
+    content: '✔ ';
   }

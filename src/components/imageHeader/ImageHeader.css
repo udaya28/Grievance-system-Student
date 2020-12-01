@@ -4,13 +4,18 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    background-image: url(./../../images/vcet.webp);
+    background-image: url(./../../images/vcet22.webp);
     height: 50vh;
     background-size:     cover;                    
     background-repeat:   no-repeat;
     background-position: center center;   
     color: white !important;
+    font-weight: 900;
+    letter-spacing: 2px;
     
+}
+.image-container .head{
+    padding: 0px 20px;
 }
 @media only screen and (max-width: 600px) {
     .image-container{
