@@ -15,9 +15,6 @@
         font-size: smaller;
 
     }
-    ul{
-        /* padding-left: 15px; */
-    }
     h1{
         font-size: large;
         margin: 10px 0px;
@@ -49,7 +46,7 @@ td ,th{
 th{
     border-bottom: 2px solid #ddd;
     font-weight: 900;
-    color:;
+    
 }
 .table{
     font-size: 13px;
