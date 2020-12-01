@@ -26,11 +26,11 @@ const GrievanceForm = () => {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl className="single">
-              <TextField id="select" label="Category" select variant="outlined">
+              <TextField id="select" label="Category" value="college" select variant="outlined">
                 <MenuItem value="college">College</MenuItem>
                 <MenuItem value="hostel">Hostel</MenuItem>
               </TextField>
-              <FormHelperText id="outlined-basic">
+              <FormHelperText id="select">
                 select your Category.
               </FormHelperText>
             </FormControl>
@@ -46,11 +46,11 @@ const GrievanceForm = () => {
             //   defaultValue="Default Value"
             variant="outlined"
           />
-          <FormHelperText id="outlined-basic">
+          <FormHelperText id="outlined-multiline-static">
             Give a detailed summary of your complaint.
           </FormHelperText>
         </FormControl>
-        <Grid container xs={12} justify="flex-end">
+        <Grid container justify="flex-end">
           <Button variant="contained" color="primary" endIcon={<SendIcon />}>
           Send
         </Button>

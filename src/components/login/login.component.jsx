@@ -53,7 +53,7 @@ const SignIn = () =>  {
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <Grid container xs={12} justify="flex-end" style={{paddingTop:"10px" , paddingRight:"15px"}} >
+        <Grid container  justify="flex-end" style={{paddingTop:"10px" , paddingRight:"15px"}} >
         <SwitchTheme/>
         </Grid>
 
@@ -87,7 +87,7 @@ const SignIn = () =>  {
               id="password"
               autoComplete="current-password"
             />
-            <Grid container xs={12} justify-content="flex-start" >
+            <Grid container justify-content="flex-start" >
                 <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
