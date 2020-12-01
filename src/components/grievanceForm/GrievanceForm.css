@@ -1,3 +1,17 @@
 .form-head{
     font-size: 2rem;
 }
+
+.form{
+    margin: 20px 0px;
+    
+}
+.form-group{
+    margin: 5px;
+    padding: 15px;
+    border: 1.5px solid rgb(189, 189, 189);
+    border-radius: 5px;
+}
+.single{
+    margin: 10px 0px !important;
+}

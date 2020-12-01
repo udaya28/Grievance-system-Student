@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './Details.styles.css';
 const Details = () => {
@@ -118,11 +119,13 @@ const Details = () => {
       <h1>Committee Members</h1>
       <div className="table">
       <table  >
+        <tbody>
         <tr>
           <th>Name</th>
           <th>Designation</th>
           
         </tr>
+
         <tr>
           <td>Dr. Tharun Kumar</td>
           <td>Principal </td>
@@ -143,6 +146,8 @@ const Details = () => {
           <td>Mr. Udaya</td>
           <td>Assistant professor, Dept. of Computer Science </td>
         </tr>
+        </tbody>
+        
         
       </table>
       </div>
