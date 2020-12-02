@@ -3,8 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -40,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -58,6 +56,7 @@ const SignIn = () => {
 
   const handleSignIn = () => {
     console.log(RollNumber, Password);
+    // setIsLoggedIn(true)
     setValidationState(true);
     if (Password !== '' && RollNumber !== '') {
       if (RollNumber === '19CSR118' && Password === '1234') {
@@ -65,7 +64,7 @@ const SignIn = () => {
       } else {
         console.log('Invalid Input');
         setIsValid(false);
-        setTimeout(()=>setIsValid(true),5000)
+        setTimeout(() => setIsValid(true), 5000);
       }
     }
   };
@@ -116,7 +115,6 @@ const SignIn = () => {
                 !RollNumber &&
                 'Roll number field is required'
               }
-              // {validationState}
               autoFocus
             />
             <TextField
@@ -153,7 +151,11 @@ const SignIn = () => {
             </Button>
           </FormControl>
 
-          <p> For testing purpose <br/> User name : 19CSR118 <br/> Password : 1234</p>
+          <p>
+            {' '}
+            For testing purpose <br /> User name : 19CSR118 <br /> Password :
+            1234
+          </p>
         </div>
       </Grid>
     </Grid>

@@ -2,43 +2,80 @@ import {
   Button,
   FormControl,
   FormGroup,
-  FormHelperText,
   Grid,
   MenuItem,
   TextField,
   Typography,
 } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
-import React from 'react';
+import React, { useState } from 'react';
 import './GrievanceForm.css';
+
 const GrievanceForm = () => {
+  const [Title, setTitle] = useState('');
+  const [Category, setCategory] = useState('');
+  const [Complaint, setComplaint] = useState('');
+  const [ValidationState, setValidationState] = useState(false);
+  // const [IsValid, setIsValid] = useState(true);
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+  };
+  const handleComplaint = (e) => {
+    setComplaint(e.target.value);
+  };
+  const handleFormSubmit = () => {
+    setValidationState(true);
+    if(Title !== '' && Category !== '' && Complaint !== ''){
+      console.log(Title, Category, Complaint ,Date.now());
+    }
+  };
+
   return (
     <div className="form">
       <h1 className="form-head">Post Your Grievance</h1>
-      <Typography variant="caption" display="block" align="justify" color="error" style={{margin:"0px 8px"}}>
-        NOTE: You can make complaint and can stay anonyms. Your details will not be show to any faculty of college as well as Grievance Committee unless you provide any information in below form. Make sure you don't add any of your details unless you willing to provide your details.
+      <Typography
+        variant="caption"
+        display="block"
+        align="left"
+        color="error"
+        style={{ margin: '0px 8px 10px 8px' }}
+      >
+        NOTE : Your personal information is kept Anonymous to grievance
+        committee, until you reveal it in complaint column.
       </Typography>
       <FormGroup className="form-group">
-      
         <Grid container spacing={1}>
-          
           <Grid item xs={12} sm={6}>
             <FormControl className="single">
-              <TextField id="outlined-basic" label="Title" variant="outlined" />
-              <FormHelperText id="outlined-basic">
-                Short title on your complaint.
-              </FormHelperText>
+              <TextField
+                id="outlined-basic"
+                label="Title"
+                variant="outlined"
+                value={Title}
+                onInput={handleTitle}
+                error={ValidationState && Title === ''}
+                helperText="Short title on your complaint"
+              />
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl className="single">
-              <TextField id="select" label="Category" select variant="outlined">
+              <TextField
+                id="select"
+                label="Category"
+                select
+                variant="outlined"
+                value={Category}
+                onChange={handleCategory}
+                error={ValidationState && Category === ''}
+                helperText="Select category of complaint"
+              >
                 <MenuItem value="college">College</MenuItem>
                 <MenuItem value="hostel">Hostel</MenuItem>
               </TextField>
-              <FormHelperText id="select">
-                Select category of complaint.
-              </FormHelperText>
             </FormControl>
           </Grid>
         </Grid>
@@ -49,19 +86,23 @@ const GrievanceForm = () => {
             label="Complaint"
             multiline
             rows={10}
-            //   defaultValue="Default Value"
+            onInput={handleComplaint}
+            value={Complaint}
             variant="outlined"
+            error={ValidationState && Complaint === ''}
+            helperText="Give summary of your complaint with required details"
           />
-          <FormHelperText id="outlined-multiline-static">
-            Give a detailed summary of your complaint with required details.
-          </FormHelperText>
         </FormControl>
         <Grid container justify="flex-end">
-          <Button variant="contained" color="primary" endIcon={<SendIcon />}>
-          Send
-        </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            endIcon={<SendIcon />}
+            onClick={handleFormSubmit}
+          >
+            Send
+          </Button>
         </Grid>
-        
       </FormGroup>
     </div>
   );
