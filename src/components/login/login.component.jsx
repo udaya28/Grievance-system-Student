@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -49,11 +49,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SignIn = () => {
+  const [RollNumber, setRollNumber] = useState('');
+  const [Password, setPassword] = useState('');
+  const [ValidationState, setValidationState] = useState(false);
+  const [IsValid, setIsValid] = useState(true);
   const classes = useStyles();
   const setIsLoggedIn = React.useContext(setLogin);
 
   const handleSignIn = () => {
-    setIsLoggedIn(true);
+    console.log(RollNumber, Password);
+    setValidationState(true);
+    if (Password !== '' && RollNumber !== '') {
+      if (RollNumber === '19CSR118' && Password === '1234') {
+        setTimeout(() => setIsLoggedIn(true), 1000);
+      } else {
+        console.log('Invalid Input');
+        setIsValid(false);
+        setTimeout(()=>setIsValid(true),5000)
+      }
+    }
+  };
+  const handleRollNumber = (e) => {
+    Password === '' && RollNumber === '' && setValidationState(false);
+    setRollNumber(e.target.value);
+  };
+  const handlePassword = (e) => {
+    Password === '' && RollNumber === '' && setValidationState(false);
+    setPassword(e.target.value);
   };
 
   return (
@@ -76,16 +98,25 @@ const SignIn = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <FormControl className={classes.form} noValidate>
+          <FormControl className={classes.form} validate="true">
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Roll Number"
               name="email"
               autoComplete="email"
+              onInput={handleRollNumber}
+              value={RollNumber}
+              error={ValidationState && !RollNumber}
+              helperText={
+                ValidationState &&
+                !RollNumber &&
+                'Roll number field is required'
+              }
+              // {validationState}
               autoFocus
             />
             <TextField
@@ -97,15 +128,19 @@ const SignIn = () => {
               label="Password"
               type="password"
               id="password"
+              onInput={handlePassword}
+              value={Password}
+              error={ValidationState && !Password}
+              helperText={
+                ValidationState && !Password && 'Password field is required'
+              }
               autoComplete="current-password"
             />
-            {/* <Grid container justify-content="flex-start">
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-            </Grid> */}
-
+            {!IsValid && (
+              <Typography color="error" variant="caption" align="left">
+                RollNumber or Password is Invalid
+              </Typography>
+            )}
             <Button
               type="submit"
               fullWidth
