@@ -1,15 +1,21 @@
 import React from 'react';
-import { AppBar, Grid } from '@material-ui/core';
+import { AppBar, Grid, Typography } from '@material-ui/core';
 
 const Footer = () => {
   return (
-    <AppBar position="relative" style={{ top: 'auto', bottom: 0 }} color="default">
+    <AppBar
+      position="relative"
+      style={{ top: 'auto', bottom: 0 }}
+      color="primary"
+
+    >
       <Grid container justify="space-between" style={{ padding: '10px 5px' }}>
         <Grid item sm={6} xs={12}>
-          Copyright © 2020
+          
+          <Typography variant="caption">Copyright © 2020</Typography>
         </Grid>
         <Grid item sm={6} xs={12}>
-          Developed By Anonymous with ❤️
+          <Typography variant="caption">Developed By Anonymous with ❤️</Typography>
         </Grid>
       </Grid>
     </AppBar>

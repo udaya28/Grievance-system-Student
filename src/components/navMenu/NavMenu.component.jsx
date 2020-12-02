@@ -27,8 +27,8 @@ export default function NavMenu() {
 
   return (
     <div>
-      <IconButton id="simple-menu" onClick={handleClick}>
-        <SettingsRoundedIcon />
+      <IconButton id="simple-menu" onClick={handleClick} >
+        <SettingsRoundedIcon style={{color:"white"}} />
       </IconButton>
       <Menu
         id="menu-list-grow"

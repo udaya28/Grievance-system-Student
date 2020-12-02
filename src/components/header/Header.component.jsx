@@ -8,7 +8,7 @@ import NavMenu from '../navMenu/NavMenu.component';
 import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
-    <AppBar position="fixed" color="default">
+    <AppBar position="fixed" color="primary">
       <Toolbar>
         <Grid
           container
@@ -28,11 +28,11 @@ const Header = () => {
                 // activeStyle={{
                 //   fontWeight: 'bold',
                 // }}
-                style={{padding:"0px 10px" ,fontWeight: 'bold'}}
+                style={{padding:"0px 10px" ,fontWeight: 'bold', color:'white'}}
               >
                 Home
               </NavLink>
-              <NavLink to="/about" style={{padding:"0px 10px",fontWeight: 'bold', }}>About</NavLink>
+              <NavLink to="/about" style={{padding:"0px 10px",fontWeight: 'bold',color:'white' }}>About</NavLink>
               {/* <SwitchTheme /> */}
               <NavMenu />
             </Grid>

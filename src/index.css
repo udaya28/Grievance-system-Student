@@ -37,3 +37,10 @@ a:hover
    text-decoration:none; 
    cursor:pointer;  
 }
+
+
+
+h1,a,li{
+  color: #333333 ;
+}
+
