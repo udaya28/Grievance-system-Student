@@ -17,13 +17,13 @@ const Home = () => {
       <Paper>
         <Header />
         <Switch>
-          <Route exact path="/about">
+          <Route exact path="/Grievance-system-Student/about">
             <Container maxWidth="md">
               <Details />
             </Container>
           </Route>
 
-          <Route path="/">
+          <Route path="/Grievance-system-Student/">
             <ImageHeader />
             <Container maxWidth="md">
               <Grid container direction="column">

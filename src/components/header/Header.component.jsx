@@ -23,7 +23,7 @@ const Header = () => {
           <Grid item justify="flex-end">
             <Grid container justify="space-between" alignItems="center">
               <NavLink
-                to="/"
+                to="/Grievance-system-Student/"
                 // activeClassName="selected"
                 // activeStyle={{
                 //   fontWeight: 'bold',
@@ -32,7 +32,7 @@ const Header = () => {
               >
                 Home
               </NavLink>
-              <NavLink to="/about" style={{padding:"0px 10px",fontWeight: 'bold',color:'white' }}>About</NavLink>
+              <NavLink to="/Grievance-system-Student/about" style={{padding:"0px 10px",fontWeight: 'bold',color:'white' }}>About</NavLink>
               {/* <SwitchTheme /> */}
               <NavMenu />
             </Grid>

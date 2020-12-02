@@ -7,7 +7,7 @@ import Home from './components/home/Home.component';
 // import green from '@material-ui/core/colors/green';
 function App() {
   const [DarkMode, setDarkMode] = useState(false);
-  const [IsLoggedIn, setIsLoggedIn] = useState(false);
+  const [IsLoggedIn, setIsLoggedIn] = useState(true);
   const theme = createMuiTheme({
     palette: {
       type: DarkMode ? 'dark' : 'light',
