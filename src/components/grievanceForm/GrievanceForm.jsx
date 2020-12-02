@@ -43,7 +43,7 @@ const GrievanceForm = () => {
         color="error"
         style={{ margin: '0px 8px 10px 8px' }}
       >
-        NOTE : Your personal information is kept Anonymous to grievance
+        NOTE : Your personal information is kept anonymous to the grievance
         committee, until you reveal it in complaint column.
       </Typography>
       <FormGroup className="form-group">

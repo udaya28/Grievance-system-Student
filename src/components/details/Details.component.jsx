@@ -4,7 +4,7 @@ import './Details.styles.css';
 const Details = () => {
   return (
     <div className="details">
-      <h1 className="form-head form-head1" >Grievance Cell</h1>
+      <h1 className="form-head form-head1">Grievance Cell</h1>
       <p>
         &nbsp; &nbsp; &nbsp; &nbsp;The cell functions to look into the
         grievances lodged by any student. Students may approach the cell to

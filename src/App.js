@@ -12,8 +12,10 @@ function App() {
     palette: {
       type: DarkMode ? 'dark' : 'light',
 
-      // primary: green,
-      // secondary: green,
+      primary:{
+        main: "#3a42bb",
+      }
+
     },
   });
 
