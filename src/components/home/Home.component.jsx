@@ -10,6 +10,7 @@ import GrievanceForm from '../grievanceForm/GrievanceForm';
 import Footer from '../footer/Footer';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Profile from '../profile/Profile';
 
 const Home = () => {
   return (
@@ -20,6 +21,11 @@ const Home = () => {
           <Route exact path="/Grievance-system-Student/about">
             <Container maxWidth="md">
               <Details />
+            </Container>
+          </Route>
+          <Route exact path="/Grievance-system-Student/profile">
+            <Container maxWidth="md">
+              <Profile/>
             </Container>
           </Route>
 

@@ -6,7 +6,7 @@ import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import IconButton from '@material-ui/core/IconButton';
 import {setLogin} from './../../context/context'
-
+import { useHistory } from "react-router-dom";
 
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,6 +22,12 @@ export default function NavMenu() {
   const signOut = () =>{
     handleClose();
     setIsLoggedIn(false);
+  }
+  let history = useHistory();
+  const handleProfile = ()=>{
+    history.push('/Grievance-system-Student/profile')
+    handleClose();
+
   }
 
 
@@ -46,7 +52,7 @@ export default function NavMenu() {
           horizontal: 'center',
         }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleProfile}>
           <AccountCircleRoundedIcon /> &nbsp;&nbsp;&nbsp;Profile
         </MenuItem>
         <MenuItem onClick={signOut}>
