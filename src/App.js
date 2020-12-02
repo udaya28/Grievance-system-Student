@@ -6,7 +6,7 @@ import { SetThemes ,setLogin } from './context/context';
 import Home from './components/home/Home.component';
 function App() {
   const [DarkMode, setDarkMode] = useState(false);
-  const [IsLoggedIn, setIsLoggedIn] = useState(true);
+  const [IsLoggedIn, setIsLoggedIn] = useState(false);
   const theme = createMuiTheme({
     palette: {
       type: DarkMode ? 'dark' : 'light',
