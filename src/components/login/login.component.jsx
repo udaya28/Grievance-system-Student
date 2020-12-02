@@ -152,6 +152,8 @@ const SignIn = () => {
               Sign In
             </Button>
           </FormControl>
+
+          <p> For testing purpose <br/> User name : 19CSR118 <br/> Password : 1234</p>
         </div>
       </Grid>
     </Grid>
