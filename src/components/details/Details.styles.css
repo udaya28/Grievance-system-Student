@@ -1,8 +1,10 @@
 .details{
-    padding: 0px 45px;
+    padding: 10px 0px !important;
     text-align: justify;
 }
-
+.form-head1{
+    margin-top: 4rem;
+}
 @media only screen and (max-width: 600px) {
     .details{
         padding: 0px 0px;

@@ -9,7 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
-import SwitchTheme from './../switchTheme/switchTheme.component';
+// import SwitchTheme from './../switchTheme/switchTheme.component';
 import { setLogin } from '../../context/context';
 
 const useStyles = makeStyles((theme) => ({
@@ -87,7 +87,7 @@ const SignIn = () => {
           justify="flex-end"
           style={{ paddingTop: '10px', paddingRight: '15px' }}
         >
-          <SwitchTheme />
+          {/* <SwitchTheme /> */}
         </Grid>
 
         <div className={classes.paper}>

@@ -8,20 +8,34 @@ import ImageHeader from '../imageHeader/ImageHeader';
 import Details from './../details/Details.component';
 import GrievanceForm from '../grievanceForm/GrievanceForm';
 import Footer from '../footer/Footer';
+
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 const Home = () => {
   return (
-    <Paper>
-      <Header />
-      <ImageHeader />
-      <Container maxWidth="md">
-        <Grid container direction="column">
-        <GrievanceForm/>
-          <Details />
-          
-        </Grid>
-      </Container>
-      <Footer/>
-    </Paper>
+    <Router>
+      <Paper>
+        <Header />
+        <Switch>
+          <Route exact path="/about">
+            <Container maxWidth="md">
+              <Details />
+            </Container>
+          </Route>
+
+          <Route path="/">
+            <ImageHeader />
+            <Container maxWidth="md">
+              <Grid container direction="column">
+                <GrievanceForm />
+              </Grid>
+            </Container>
+          </Route>
+        </Switch>
+
+        <Footer />
+      </Paper>
+    </Router>
   );
 };
 
