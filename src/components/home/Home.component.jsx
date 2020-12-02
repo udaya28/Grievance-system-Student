@@ -7,6 +7,7 @@ import './Home.styles.css';
 import ImageHeader from '../imageHeader/ImageHeader';
 import Details from './../details/Details.component';
 import GrievanceForm from '../grievanceForm/GrievanceForm';
+import Footer from '../footer/Footer';
 const Home = () => {
   return (
     <Paper>
@@ -19,6 +20,7 @@ const Home = () => {
           
         </Grid>
       </Container>
+      <Footer/>
     </Paper>
   );
 };
