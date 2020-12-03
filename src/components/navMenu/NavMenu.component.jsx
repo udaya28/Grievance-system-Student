@@ -78,7 +78,7 @@ export default function NavMenu() {
           <ExitToAppRoundedIcon /> &nbsp;&nbsp;&nbsp;Logout
         </MenuItem>
       </Menu>
-      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Are you sure you want to logout?" handleConfirm={doneSignOut} />
+      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Are you sure you want to logout?" handleConfirm={doneSignOut} confirmButtonColorSecondary={true}  />
     </div>
   );
 }

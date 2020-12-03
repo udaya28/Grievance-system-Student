@@ -5,7 +5,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { setLogin } from './context/context';
 import Home from './components/home/Home.component';
 function App() {
-  const [IsLoggedIn, setIsLoggedIn] = useState(true);
+  const [IsLoggedIn, setIsLoggedIn] = useState(false);
   const theme = createMuiTheme({
     palette: {
       type:  'light',

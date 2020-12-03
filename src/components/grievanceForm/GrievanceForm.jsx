@@ -132,7 +132,7 @@ const GrievanceForm = () => {
           </Button>
         </Grid>
       </FormGroup>
-      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Once submitted you can't change or delete your complaint." handleConfirm={doneSubmit} />
+      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Once submitted you can't change or delete your complaint." handleConfirm={doneSubmit} confirmButtonColorSecondary={false} />
     </div>
   );
 };
