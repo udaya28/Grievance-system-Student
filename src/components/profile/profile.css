@@ -1,0 +1,20 @@
+
+.icon-lg {
+  font-size: 4rem !important;
+}
+.sub-head{
+   font-size: large;
+}
+
+@media only screen and (max-width: 600px) {
+  .sub-head {
+     font-size: medium;
+  }
+
+}
+
+.MuiAvatar-colorDefault {
+   color: #fafafa;
+   color: white !important;
+   background-color: #3a42bb !important;
+}
