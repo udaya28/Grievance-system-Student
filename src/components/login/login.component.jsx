@@ -152,7 +152,6 @@ const SignIn = () => {
           </FormControl>
 
           <p>
-            {' '}
             For testing purpose <br /> User name : 19CSR118 <br /> Password :
             1234
           </p>

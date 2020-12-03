@@ -10,13 +10,15 @@ import {
 import SendIcon from '@material-ui/icons/Send';
 import React, { useState } from 'react';
 import './GrievanceForm.css';
+import AlertDialog from './../Dialog/Dialog.component'
 
 const GrievanceForm = () => {
   const [Title, setTitle] = useState('');
   const [Category, setCategory] = useState('');
   const [Complaint, setComplaint] = useState('');
   const [ValidationState, setValidationState] = useState(false);
-  // const [IsValid, setIsValid] = useState(true);
+
+
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -28,10 +30,36 @@ const GrievanceForm = () => {
   };
   const handleFormSubmit = () => {
     setValidationState(true);
-    if(Title !== '' && Category !== '' && Complaint !== ''){
-      console.log(Title, Category, Complaint ,Date.now());
+    if (Title !== '' && Category !== '' && Complaint !== '') {
+      console.log(Title, Category, Complaint, Date.now());
+      handleOpenDialog();
     }
   };
+
+  const doneSubmit = () =>{
+    setTitle('');
+    setCategory('');
+    setComplaint('');
+    setOpenDialog(false);
+    setValidationState(false);
+  }
+
+
+  //dialog
+  const [OpenDialog, setOpenDialog] = React.useState(false);
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
+
+
+
+
 
   return (
     <div className="form">
@@ -98,12 +126,13 @@ const GrievanceForm = () => {
             variant="contained"
             color="primary"
             endIcon={<SendIcon />}
-            onClick={handleFormSubmit}
+            onClick={handleFormSubmit} 
           >
             Send
           </Button>
         </Grid>
       </FormGroup>
+      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Are you sure?" content="Once submitted you can't change or delete your complaint." handleConfirm={doneSubmit} />
     </div>
   );
 };
