@@ -7,6 +7,7 @@ import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import IconButton from '@material-ui/core/IconButton';
 import {setLogin} from './../../context/context'
 import { useHistory } from "react-router-dom";
+import AlertDialog from './../Dialog/Dialog.component'
 
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -19,9 +20,14 @@ export default function NavMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const signOut = () =>{
+    handleOpenDialog();
+  }
+  const doneSignOut = () =>{
     handleClose();
     setIsLoggedIn(false);
+
   }
   let history = useHistory();
   const handleProfile = ()=>{
@@ -29,6 +35,19 @@ export default function NavMenu() {
     handleClose();
 
   }
+
+
+  //dialog
+  const [OpenDialog, setOpenDialog] = React.useState(false);
+
+  const handleOpenDialog = () => {
+    setAnchorEl(null);
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
 
   return (
@@ -59,6 +78,7 @@ export default function NavMenu() {
           <ExitToAppRoundedIcon /> &nbsp;&nbsp;&nbsp;Logout
         </MenuItem>
       </Menu>
+      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Are you sure you want to logout?" handleConfirm={doneSignOut} />
     </div>
   );
 }
