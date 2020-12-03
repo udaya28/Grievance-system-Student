@@ -5,9 +5,9 @@ import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import IconButton from '@material-ui/core/IconButton';
-import {setLogin} from './../../context/context'
-import { useHistory } from "react-router-dom";
-import AlertDialog from './../Dialog/Dialog.component'
+import { setLogin } from './../../context/context';
+import { Link } from 'react-router-dom';
+import AlertDialog from './../Dialog/Dialog.component';
 
 export default function NavMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -21,21 +21,17 @@ export default function NavMenu() {
     setAnchorEl(null);
   };
 
-  const signOut = () =>{
+  const signOut = () => {
     handleOpenDialog();
-  }
-  const doneSignOut = () =>{
+  };
+  const doneSignOut = () => {
     handleClose();
     setIsLoggedIn(false);
+  };
 
-  }
-  let history = useHistory();
-  const handleProfile = ()=>{
-    history.push('/Grievance-system-Student/profile')
+  const handleProfile = () => {
     handleClose();
-
-  }
-
+  };
 
   //dialog
   const [OpenDialog, setOpenDialog] = React.useState(false);
@@ -49,11 +45,10 @@ export default function NavMenu() {
     setOpenDialog(false);
   };
 
-
   return (
     <div>
-      <IconButton id="simple-menu" onClick={handleClick} >
-        <SettingsRoundedIcon style={{color:"white"}} />
+      <IconButton id="simple-menu" onClick={handleClick}>
+        <SettingsRoundedIcon style={{ color: 'white' }} />
       </IconButton>
       <Menu
         id="menu-list-grow"
@@ -71,14 +66,24 @@ export default function NavMenu() {
           horizontal: 'center',
         }}
       >
-        <MenuItem onClick={handleProfile}>
-          <AccountCircleRoundedIcon /> &nbsp;&nbsp;&nbsp;Profile
-        </MenuItem>
+        <Link to="/Grievance-system-Student/profile">
+          <MenuItem onClick={handleProfile}>
+            <AccountCircleRoundedIcon /> &nbsp;&nbsp;&nbsp;Profile
+          </MenuItem>
+        </Link>
+
         <MenuItem onClick={signOut}>
           <ExitToAppRoundedIcon /> &nbsp;&nbsp;&nbsp;Logout
         </MenuItem>
       </Menu>
-      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Are you sure you want to logout?" handleConfirm={doneSignOut} confirmButtonColorSecondary={true}  />
+      <AlertDialog
+        SetOpen={OpenDialog}
+        handleClose={handleCloseDialog}
+        title="Confirm"
+        content="Are you sure you want to logout?"
+        handleConfirm={doneSignOut}
+        confirmButtonColorSecondary={true}
+      />
     </div>
   );
 }
