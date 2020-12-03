@@ -20,7 +20,7 @@ const Header = () => {
             <h3 className="mon">VCET</h3>
           </Grid>
 
-          <Grid item justify="flex-end">
+          <Grid item >
             <Grid container justify="space-between" alignItems="center">
               <NavLink
                 to="/Grievance-system-Student/"

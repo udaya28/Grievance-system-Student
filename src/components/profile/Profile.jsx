@@ -52,7 +52,7 @@ const Profile = () => {
         style={{ padding: '20px' }}
         direction="column"
       >
-        <Grid item xs={12} justify="center" alignContent="center">
+        <Grid item xs={12} >
           <Avatar style={{ width: '80px', height: '80px' }}>
             <PersonIcon className="icon-lg" style={{backgroundColor:"3a42bb",}} />
           </Avatar>
