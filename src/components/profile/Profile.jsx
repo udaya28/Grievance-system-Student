@@ -18,10 +18,11 @@ const data = {
   joinYear: 2019,
   department: 'CSE',
   totalComplaintsMade: 0,
+  totalComplaintsClosed:0,
   dateOfBirth:"28-01-2002"
 };
 
-const IconGroup = ({ head, content, icon }) => {
+const IconGroup = ({ head, content, icon}) => {
   return (
     <Grid container justify="center" alignContent="center" direction="row">
       <Grid container alignContent="center" justify="center">
@@ -35,7 +36,8 @@ const IconGroup = ({ head, content, icon }) => {
   );
 };
 
-const Profile = () => {
+const Profile = ({data}) => {
+  const {firstName,secondName,joinYear,department,dateOfBirth,rollNumber,totalComplaintsMade,totalComplaintsClosed} =data;
   return (
     <Grid
       container
@@ -58,7 +60,7 @@ const Profile = () => {
           </Avatar>
         </Grid>
         <Grid item xs={12}>
-          <h1 className="sub-head">Udaya M</h1>
+  <h1 className="sub-head">{firstName + " " + secondName}</h1>
         </Grid>
         
       </Grid>
@@ -70,27 +72,27 @@ const Profile = () => {
           <Grid item xs={6} sm={3}>
             <IconGroup
               head="Batch"
-              content="2019 - 2023"
+              content={`${joinYear} - ${joinYear + 4}`}
               icon={<BallotIcon  />}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Department" content="CSE" icon={<BookIcon />} />
+            <IconGroup head="Department" content={department} icon={<BookIcon />} />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Degree" content="B.E CES" icon={<StarsIcon />} />
+            <IconGroup head="Degree" content="B.E" icon={<StarsIcon />} />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Date of birth" content="28-01-2002" icon={<EventNoteIcon />} />
+            <IconGroup head="Date of birth" content={dateOfBirth} icon={<EventNoteIcon />} />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Roll number" content="19CSR118" icon={<ContactsIcon />} />
+            <IconGroup head="Roll number" content={rollNumber} icon={<ContactsIcon />} />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Complaints made" content="0" icon={<AssignmentLateIcon />} />
+            <IconGroup head="Complaints made" content={totalComplaintsMade} icon={<AssignmentLateIcon />} />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Complaints closed" content="0" icon={<AssignmentTurnedInIcon />} />
+            <IconGroup head="Complaints closed" content={totalComplaintsClosed} icon={<AssignmentTurnedInIcon />} />
           </Grid>
         </Grid>
 

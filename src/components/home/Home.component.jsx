@@ -11,6 +11,18 @@ import Footer from '../footer/Footer';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from '../profile/Profile';
+const data = {
+  firstName: 'Udaya',
+  secondName: 'M',
+  rollNumber: '19CSR118',
+  gender: 'male',
+  joinYear: 2019,
+  department: 'CSE',
+  totalComplaintsMade: 0,
+  totalComplaintsClosed:0,
+  dateOfBirth:"28-01-2002"
+};
+
 
 const Home = () => {
   return (
@@ -25,7 +37,7 @@ const Home = () => {
           </Route>
           <Route exact path="/Grievance-system-Student/profile">
             <Container maxWidth="md">
-              <Profile/>
+              <Profile data={data}   />
             </Container>
           </Route>
 
