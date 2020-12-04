@@ -9,7 +9,7 @@ import Details from './../details/Details.component';
 import GrievanceForm from '../grievanceForm/GrievanceForm';
 import Footer from '../footer/Footer';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from '../profile/Profile';
 
 const Home = () => {
