@@ -11,6 +11,7 @@ import Footer from '../footer/Footer';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from '../profile/Profile';
+import Activity from '../activity/Activity';
 const data = {
   firstName: 'Udaya',
   secondName: 'M',
@@ -46,6 +47,7 @@ const Home = () => {
             <Container maxWidth="md">
               <Grid container direction="column">
                 <GrievanceForm />
+                <Activity/>
               </Grid>
             </Container>
           </Route>
