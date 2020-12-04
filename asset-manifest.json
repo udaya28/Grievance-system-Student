@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/Grievance-system-Student/static/css/main.79af2b66.chunk.css",
-    "main.js": "/Grievance-system-Student/static/js/main.3d8f5e5b.chunk.js",
-    "main.js.map": "/Grievance-system-Student/static/js/main.3d8f5e5b.chunk.js.map",
+    "main.js": "/Grievance-system-Student/static/js/main.c6202f4a.chunk.js",
+    "main.js.map": "/Grievance-system-Student/static/js/main.c6202f4a.chunk.js.map",
     "runtime-main.js": "/Grievance-system-Student/static/js/runtime-main.7a742e7b.js",
     "runtime-main.js.map": "/Grievance-system-Student/static/js/runtime-main.7a742e7b.js.map",
-    "static/js/2.6a59eef0.chunk.js": "/Grievance-system-Student/static/js/2.6a59eef0.chunk.js",
-    "static/js/2.6a59eef0.chunk.js.map": "/Grievance-system-Student/static/js/2.6a59eef0.chunk.js.map",
+    "static/js/2.e8a3030a.chunk.js": "/Grievance-system-Student/static/js/2.e8a3030a.chunk.js",
+    "static/js/2.e8a3030a.chunk.js.map": "/Grievance-system-Student/static/js/2.e8a3030a.chunk.js.map",
     "index.html": "/Grievance-system-Student/index.html",
     "static/css/main.79af2b66.chunk.css.map": "/Grievance-system-Student/static/css/main.79af2b66.chunk.css.map",
-    "static/js/2.6a59eef0.chunk.js.LICENSE.txt": "/Grievance-system-Student/static/js/2.6a59eef0.chunk.js.LICENSE.txt",
+    "static/js/2.e8a3030a.chunk.js.LICENSE.txt": "/Grievance-system-Student/static/js/2.e8a3030a.chunk.js.LICENSE.txt",
     "static/media/ImageHeader.css": "/Grievance-system-Student/static/media/vcet4.37a1bf44.webp"
   },
   "entrypoints": [
     "static/js/runtime-main.7a742e7b.js",
-    "static/js/2.6a59eef0.chunk.js",
+    "static/js/2.e8a3030a.chunk.js",
     "static/css/main.79af2b66.chunk.css",
-    "static/js/main.3d8f5e5b.chunk.js"
+    "static/js/main.c6202f4a.chunk.js"
   ]
 }
