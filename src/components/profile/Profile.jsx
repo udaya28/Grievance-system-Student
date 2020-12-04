@@ -43,7 +43,7 @@ const Profile = () => {
       alignItems="center"
       justify="center"
       direction="row"
-      style={{marginTop:"80px" , marginBottom:"60px"}}
+      style={{paddingTop:"80px" , paddingBottom:"60px"}}
     >
       <Grid
         container
