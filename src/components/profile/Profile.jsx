@@ -63,7 +63,7 @@ const Profile = () => {
         
       </Grid>
       <Grid item xs={12}>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <Grid item xs={6} sm={3}>
             <IconGroup head="Campus" content="VCET" icon={<LocationOnIcon />} />
           </Grid>
