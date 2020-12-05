@@ -40,7 +40,9 @@ const ActivityDialog = ({ open, handleClose, data }) => {
                   <h1 className="dialogHeading">Response</h1>,
                   <p style={{textAlign:"justify"}}>{data.complaint}</p>,
                 ]
-              : [<h1 className="dialogHeading">No response received</h1>]}
+              : null}
+              {/* [<h1 className="dialogHeading">No response received from committee </h1>] */}
+              <p style={{textAlign:"left" ,fontSize:"small",margin:"15px 0px 0px",fontWeight:"bolder" }} className={`${statusClass}-col`}>{data.status} by committee</p>
           </DialogContentText>
         </DialogContent>
         <DialogActions className="action">

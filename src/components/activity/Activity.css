@@ -20,6 +20,9 @@
     text-align: left;
     font-size: x-small;
     font-weight: 300;
+    color: rgba(0, 0, 0, 0.54);
+    /* text-transform: uppercase; */
+    /* font-family: monospace; */
 }
 .activity-status{
     font-weight: 300;
