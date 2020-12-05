@@ -4,9 +4,11 @@
 }
 
 .activity-title {
+  text-align: left;
   font-size: large !important;
   margin: 0px;
   padding: 10px 0px;
+  margin-right: 4px;
   margin-left: 15px;
   font-weight: 600;
   

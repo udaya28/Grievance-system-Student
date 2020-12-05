@@ -6,14 +6,13 @@ import './Activity.css';
 
 const sample = [
   {
-    title: 'Complaint about online class',
+    title: 'Complaint about online',
     timeStamp: 'Fri Dec 04 2020 19:21:33 GMT+0530 (India Standard Time)',
     status: 'unseen', //  "unseen" | "replayed",
     category: 'hostel', // "hostel"
     complaint:
       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response:
-      ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
+    response: '',
   },
   {
     title: 'Need information about Bus transport',
@@ -22,8 +21,7 @@ const sample = [
     category: 'college', // "hostel"
     complaint:
       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response:
-      ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
+    response: '',
   },
   {
     title: 'Complaint about hostel food',
@@ -32,8 +30,7 @@ const sample = [
     category: 'hostel', // "hostel"
     complaint:
       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response:
-      ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
+    response: '',
   },
   {
     title: 'About online exam portal',
@@ -65,7 +62,7 @@ const getDate = (date) => {
   return `${dayStr + ' ' + time}`;
 };
 
-const ActivityCard = ({ data,handleClickOpen }) => {
+const ActivityCard = ({ data, handleClickOpen }) => {
   const { title, timeStamp, status } = data;
   let statusClass;
   if (status === 'seen') {
@@ -80,7 +77,11 @@ const ActivityCard = ({ data,handleClickOpen }) => {
 
   return (
     <Grid item xs={12} sm={6}>
-      <div onClick={()=>{handleClickOpen(data,getDate(timeStamp))}}>
+      <div
+        onClick={() => {
+          handleClickOpen(data, getDate(timeStamp));
+        }}
+      >
         <Grid container className={`activity-container + ${statusClass}`}>
           <Grid item>
             <h1 className="activity-title">{title}</h1>
@@ -106,8 +107,8 @@ const ActivityCard = ({ data,handleClickOpen }) => {
 
 const Activity = () => {
   const [open, setOpen] = useState(false);
-  const [dialogData,setDialogData] = useState({});
-  const handleClickOpen = (data,time) => {
+  const [dialogData, setDialogData] = useState({});
+  const handleClickOpen = (data, time) => {
     // console.log(data,time)
     data.timeStr = time;
     setDialogData(data);
@@ -123,7 +124,11 @@ const Activity = () => {
       <h1 className="activity-head">Previous Activity</h1>
       <Grid container spacing={1} style={{ padding: '10px 5px 30px 5px' }}>
         {sample.map((data, index) => (
-          <ActivityCard data={data} key={index}  handleClickOpen={handleClickOpen} />
+          <ActivityCard
+            data={data}
+            key={index}
+            handleClickOpen={handleClickOpen}
+          />
         ))}
       </Grid>
       <ActivityDialog handleClose={handleClose} open={open} data={dialogData} />

@@ -1,0 +1,27 @@
+.dialogHeading{
+    text-align: left;
+  font-size: large !important;
+  margin: 5px 0px;
+}
+
+.action{
+    justify-content: space-between !important;
+}
+
+.green1{
+    border-color:  #00b627!important;
+    border-top: 4px solid  #00b627!important;
+    border-bottom: 4px solid  #00b627!important;
+}
+
+.red1{
+  border-color:  #d63535 !important;
+  border-top: 4px solid  #d63535!important;
+    border-bottom: 4px solid  #d63535!important;
+} 
+
+.yellow1{
+  border-color:#fce300 !important;
+  border-top: 4px solid #fce300 !important;
+    border-bottom: 4px solid  #fce300 !important;
+}
