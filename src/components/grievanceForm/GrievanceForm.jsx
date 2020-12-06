@@ -1,23 +1,20 @@
-import {
-  Button,
-  FormControl,
-  FormGroup,
-  Grid,
-  MenuItem,
-  TextField,
-  Typography,
-} from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import Grid from '@material-ui/core/Grid';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import SendIcon from '@material-ui/icons/Send';
+import AlertDialog from './../Dialog/Dialog.component';
 import './GrievanceForm.css';
-import AlertDialog from './../Dialog/Dialog.component'
 
 const GrievanceForm = () => {
   const [Title, setTitle] = useState('');
   const [Category, setCategory] = useState('');
   const [Complaint, setComplaint] = useState('');
   const [ValidationState, setValidationState] = useState(false);
-
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -36,14 +33,13 @@ const GrievanceForm = () => {
     }
   };
 
-  const doneSubmit = () =>{
+  const doneSubmit = () => {
     setTitle('');
     setCategory('');
     setComplaint('');
     setOpenDialog(false);
     setValidationState(false);
-  }
-
+  };
 
   //dialog
   const [OpenDialog, setOpenDialog] = React.useState(false);
@@ -55,11 +51,6 @@ const GrievanceForm = () => {
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
-
-
-
-
-
 
   return (
     <div className="form">
@@ -126,13 +117,20 @@ const GrievanceForm = () => {
             variant="contained"
             color="primary"
             endIcon={<SendIcon />}
-            onClick={handleFormSubmit} 
+            onClick={handleFormSubmit}
           >
             Send
           </Button>
         </Grid>
       </FormGroup>
-      <AlertDialog  SetOpen={OpenDialog} handleClose={handleCloseDialog} title="Confirm" content="Once submitted you can't change or delete your complaint." handleConfirm={doneSubmit} confirmButtonColorSecondary={false} />
+      <AlertDialog
+        SetOpen={OpenDialog}
+        handleClose={handleCloseDialog}
+        title="Confirm"
+        content="Once submitted you can't change or delete your complaint."
+        handleConfirm={doneSubmit}
+        confirmButtonColorSecondary={false}
+      />
     </div>
   );
 };

@@ -1,6 +1,5 @@
-import { Grid } from '@material-ui/core';
-import { DateRangeTwoTone } from '@material-ui/icons';
 import React, { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
 import ActivityDialog from '../ActivityDialog/ActivityDialog';
 import './Activity.css';
 

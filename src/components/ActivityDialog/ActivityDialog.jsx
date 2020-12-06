@@ -28,21 +28,33 @@ const ActivityDialog = ({ open, handleClose, data }) => {
         aria-describedby="scroll-dialog-description"
       >
         <DialogTitle id="scroll-dialog-title">
-          <h1 className="dialogHeading" style={{margin:"0px"}}>{data.title}</h1>
+          <h1 className="dialogHeading" style={{ margin: '0px' }}>
+            {data.title}
+          </h1>
         </DialogTitle>
         <DialogContent dividers={true} className={statusClass}>
           <DialogContentText id="scroll-dialog-description">
             <h1 className="dialogHeading">Complaint Made</h1>
-            <p style={{textAlign:"justify"}}>{data.complaint}</p>
+            <p style={{ textAlign: 'justify' }}>{data.complaint}</p>
 
             {data.response !== ''
               ? [
                   <h1 className="dialogHeading">Response</h1>,
-                  <p style={{textAlign:"justify"}}>{data.complaint}</p>,
+                  <p style={{ textAlign: 'justify' }}>{data.complaint}</p>,
                 ]
               : null}
-              {/* [<h1 className="dialogHeading">No response received from committee </h1>] */}
-              <p style={{textAlign:"left" ,fontSize:"small",margin:"15px 0px 0px",fontWeight:"bolder" }} className={`${statusClass}-col`}>{data.status} by committee</p>
+            {/* [<h1 className="dialogHeading">No response received from committee </h1>] */}
+            <p
+              style={{
+                textAlign: 'left',
+                fontSize: 'small',
+                margin: '15px 0px 0px',
+                fontWeight: 'bolder',
+              }}
+              className={`${statusClass}-col`}
+            >
+              {data.status} by committee
+            </p>
           </DialogContentText>
         </DialogContent>
         <DialogActions className="action">

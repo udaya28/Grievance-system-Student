@@ -1,31 +1,24 @@
-.image-container{
-    margin-top: 55px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    background-image: url(./../../images/vcet4.webp);
-    height: 15vh;
-    background-size:     cover;                    
-    background-repeat:   no-repeat;
-    background-position: center center;   
-    color: white !important;
-    font-weight: 900;
-    letter-spacing: 2px;
-    
+.image-container {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-image: url(./../../images/vcet4.webp);
+  height: 15vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white !important;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
-.image-container .head{
-    padding: 0px 20px;
-    font-size: 32px !important;
-    
-    
+.image-container .head {
+  padding: 0px 20px;
+  font-size: 32px !important;
 }
 @media only screen and (min-width: 600px) {
-    .image-container{
-        height: 20vh;
-        
-    }
-
-
+  .image-container {
+    height: 20vh;
+  }
 }
-

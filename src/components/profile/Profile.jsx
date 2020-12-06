@@ -18,11 +18,11 @@ const data = {
   joinYear: 2019,
   department: 'CSE',
   totalComplaintsMade: 0,
-  totalComplaintsClosed:0,
-  dateOfBirth:"28-01-2002"
+  totalComplaintsClosed: 0,
+  dateOfBirth: '28-01-2002',
 };
 
-const IconGroup = ({ head, content, icon}) => {
+const IconGroup = ({ head, content, icon }) => {
   return (
     <Grid container justify="center" alignContent="center" direction="row">
       <Grid container alignContent="center" justify="center">
@@ -30,14 +30,23 @@ const IconGroup = ({ head, content, icon}) => {
       </Grid>
       <Grid item>
         <h1 className="sub-head">{head}</h1>
-        <p style={{fontWeight:"bold"}}>{content}</p>
+        <p style={{ fontWeight: 'bold' }}>{content}</p>
       </Grid>
     </Grid>
   );
 };
 
-const Profile = ({data}) => {
-  const {firstName,secondName,joinYear,department,dateOfBirth,rollNumber,totalComplaintsMade,totalComplaintsClosed} =data;
+const Profile = ({ data }) => {
+  const {
+    firstName,
+    secondName,
+    joinYear,
+    department,
+    dateOfBirth,
+    rollNumber,
+    totalComplaintsMade,
+    totalComplaintsClosed,
+  } = data;
   return (
     <Grid
       container
@@ -45,7 +54,7 @@ const Profile = ({data}) => {
       alignItems="center"
       justify="center"
       direction="row"
-      style={{paddingTop:"80px" , paddingBottom:"60px"}}
+      style={{ paddingTop: '80px', paddingBottom: '60px' }}
     >
       <Grid
         container
@@ -54,15 +63,17 @@ const Profile = ({data}) => {
         style={{ padding: '20px' }}
         direction="column"
       >
-        <Grid item xs={12} >
+        <Grid item xs={12}>
           <Avatar style={{ width: '80px', height: '80px' }}>
-            <PersonIcon className="icon-lg" style={{backgroundColor:"3a42bb",}} />
+            <PersonIcon
+              className="icon-lg"
+              style={{ backgroundColor: '3a42bb' }}
+            />
           </Avatar>
         </Grid>
         <Grid item xs={12}>
-  <h1 className="sub-head">{firstName + " " + secondName}</h1>
+          <h1 className="sub-head">{firstName + ' ' + secondName}</h1>
         </Grid>
-        
       </Grid>
       <Grid item xs={12}>
         <Grid container spacing={4}>
@@ -73,29 +84,48 @@ const Profile = ({data}) => {
             <IconGroup
               head="Batch"
               content={`${joinYear} - ${joinYear + 4}`}
-              icon={<BallotIcon  />}
+              icon={<BallotIcon />}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Department" content={department} icon={<BookIcon />} />
+            <IconGroup
+              head="Department"
+              content={department}
+              icon={<BookIcon />}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
             <IconGroup head="Degree" content="B.E" icon={<StarsIcon />} />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Date of birth" content={dateOfBirth} icon={<EventNoteIcon />} />
+            <IconGroup
+              head="Date of birth"
+              content={dateOfBirth}
+              icon={<EventNoteIcon />}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Roll number" content={rollNumber} icon={<ContactsIcon />} />
+            <IconGroup
+              head="Roll number"
+              content={rollNumber}
+              icon={<ContactsIcon />}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Complaints made" content={totalComplaintsMade} icon={<AssignmentLateIcon />} />
+            <IconGroup
+              head="Complaints made"
+              content={totalComplaintsMade}
+              icon={<AssignmentLateIcon />}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <IconGroup head="Complaints closed" content={totalComplaintsClosed} icon={<AssignmentTurnedInIcon />} />
+            <IconGroup
+              head="Complaints closed"
+              content={totalComplaintsClosed}
+              icon={<AssignmentTurnedInIcon />}
+            />
           </Grid>
         </Grid>
-
       </Grid>
     </Grid>
   );

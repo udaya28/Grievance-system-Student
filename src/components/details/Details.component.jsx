@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './Details.styles.css';
 const Details = () => {
@@ -118,40 +117,36 @@ const Details = () => {
       </ul>
       <h1>Committee Members</h1>
       <div className="table">
-      <table  >
-        <tbody>
-        <tr>
-          <th>Name</th>
-          <th>Designation</th>
-          
-        </tr>
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Designation</th>
+            </tr>
 
-        <tr>
-          <td>Dr. Tharun Kumar</td>
-          <td>Principal </td>
-        </tr>
-        <tr>
-          <td>Dr. Nithesh Prawin</td>
-          <td>Assistant professor, Dept. of Computer Science </td>
-        </tr>
-        <tr>
-          <td>Dr. Vaishnavi Suvetha</td>
-          <td>Assistant professor, Dept. of Computer Science </td>
-        </tr>
-        <tr>
-          <td>Dr. Sathiyasri</td>
-          <td>Assistant professor, Dept. of Computer Science </td>
-        </tr>
-        <tr>
-          <td>Mr. Udaya</td>
-          <td>Assistant professor, Dept. of Computer Science </td>
-        </tr>
-        </tbody>
-        
-        
-      </table>
+            <tr>
+              <td>Dr. Tharun Kumar</td>
+              <td>Principal </td>
+            </tr>
+            <tr>
+              <td>Dr. Nithesh Prawin</td>
+              <td>Assistant professor, Dept. of Computer Science </td>
+            </tr>
+            <tr>
+              <td>Dr. Vaishnavi Suvetha</td>
+              <td>Assistant professor, Dept. of Computer Science </td>
+            </tr>
+            <tr>
+              <td>Dr. Sathiyasri</td>
+              <td>Assistant professor, Dept. of Computer Science </td>
+            </tr>
+            <tr>
+              <td>Mr. Udaya</td>
+              <td>Assistant professor, Dept. of Computer Science </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
     </div>
   );
 };

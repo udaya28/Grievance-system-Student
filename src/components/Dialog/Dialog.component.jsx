@@ -12,7 +12,7 @@ const AlertDialog = ({
   title,
   content,
   handleConfirm,
-  confirmButtonColorSecondary
+  confirmButtonColorSecondary,
 }) => {
   return (
     <div>
@@ -43,7 +43,7 @@ const AlertDialog = ({
           <Button
             onClick={handleConfirm}
             variant="contained"
-            color={confirmButtonColorSecondary?"secondary":"primary"}
+            color={confirmButtonColorSecondary ? 'secondary' : 'primary'}
             // color="primary"
             autoFocus
           >
