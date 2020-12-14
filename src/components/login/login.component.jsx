@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -53,20 +54,37 @@ const SignIn = () => {
   const classes = useStyles();
   const setIsLoggedIn = React.useContext(setLogin);
 
-  const handleSignIn = () => {
+  // const handleSignIn = () => {
+  //   console.log(RollNumber, Password);
+  //   // setIsLoggedIn(true)
+  //   setValidationState(true);
+  //   if (Password !== '' && RollNumber !== '') {
+  //     if (RollNumber === '19CSR118' && Password === '1234') {
+  //       setTimeout(() => setIsLoggedIn(true), 1000);
+  //     } else {
+  //       console.log('Invalid Input');
+  //       setIsValid(false);
+  //       setTimeout(() => setIsValid(true), 5000);
+  //     }
+  //   }
+  // };
+
+  const handleSignIn = async () => {
     console.log(RollNumber, Password);
-    // setIsLoggedIn(true)
-    setValidationState(true);
-    if (Password !== '' && RollNumber !== '') {
-      if (RollNumber === '19CSR118' && Password === '1234') {
-        setTimeout(() => setIsLoggedIn(true), 1000);
-      } else {
-        console.log('Invalid Input');
-        setIsValid(false);
-        setTimeout(() => setIsValid(true), 5000);
+    try {
+      const res = await Axios.post('http://localhost:3000/student/login', {
+        data: { rollNumber: RollNumber, password: Password },
+      });
+      // ,{withCredentials: true }
+      console.log(res);
+      if(res.status === 200){
+
       }
+    } catch (err) {
+      console.log(err.response);
     }
   };
+
   const handleRollNumber = (e) => {
     Password === '' && RollNumber === '' && setValidationState(false);
     setRollNumber(e.target.value);
