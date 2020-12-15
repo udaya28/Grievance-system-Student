@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import cookie from 'js-cookie';
 import SignIn from './components/login/login.component';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { setLogin } from './context/context';
 import Home from './components/home/Home.component';
+import Axios from 'axios';
+// Axios.defaults.withCredentials = true;
 function App() {
+  const [IsLoggedIn, setIsLoggedIn] = useState();
 
-  let bool;
-  if (localStorage.getItem('isLoggedIn') !== null) {
-    bool = localStorage.getItem('isLoggedIn') === 'true' ? true : false;
-  } else {
-    bool = false;
-  }
-  const [IsLoggedIn, setIsLoggedIn] = useState(bool);
-
-  // useEffect(() => {
-  //   if (localStorage.getItem('isLoggedIn') !== null) {
-  //     let bool = localStorage.getItem('isLoggedIn') === 'true' ? true : false;
-  //     setIsLoggedIn(bool);
-  //   }
-  //   return () => {};
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      // console.log(cookie.get('token'));
+      if (cookie.get('token')) {
+        const res = await Axios.get('http://192.168.43.217:3000/auth', {
+          headers: {
+            token : cookie.get('token')
+          },
+        });
+        if (res.status === 200) {
+          
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+        }
+      } else {
+        //logout
+        setIsLoggedIn(false);
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     let bool = IsLoggedIn ? 'true' : 'false';

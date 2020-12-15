@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import cookies from 'js-cookie';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -71,17 +72,35 @@ const SignIn = () => {
 
   const handleSignIn = async () => {
     console.log(RollNumber, Password);
-    try {
-      const res = await Axios.post('http://localhost:3000/student/login', {
-        data: { rollNumber: RollNumber, password: Password },
-      });
-      // ,{withCredentials: true }
-      console.log(res);
-      if(res.status === 200){
-
+    setValidationState(true);
+    if (Password !== '' && RollNumber !== '') {
+      try {
+        const res = await Axios.post(
+          'http://192.168.43.217:3000/student/login',
+          {
+            data: { rollNumber: RollNumber, password: Password },
+          }
+        );
+        console.log(res);
+        if (res.status === 200) {
+          console.log(res.data);
+          let date = 1/48;
+          // date = date.toUTCString();
+          cookies.set('token', res.data.token, {
+            expires: date,
+          });
+          setIsLoggedIn(true);
+        }
+      } catch (err) {
+        console.log(err)
+        if (err) {
+          console.log(err.response);
+          if (err.response.status === 401) {
+            setIsValid(false);
+            setTimeout(() => setIsValid(true), 5000);
+          }
+        }
       }
-    } catch (err) {
-      console.log(err.response);
     }
   };
 
