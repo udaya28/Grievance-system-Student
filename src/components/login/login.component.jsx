@@ -189,7 +189,7 @@ const SignIn = () => {
 
           <p>
             For testing purpose <br /> User name : 19CSR118 <br /> Password :
-            1234
+            123456
           </p>
         </div>
       </Grid>
