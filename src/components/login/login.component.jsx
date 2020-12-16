@@ -76,7 +76,7 @@ const SignIn = () => {
     if (Password !== '' && RollNumber !== '') {
       try {
         const res = await Axios.post(
-          'http://192.168.43.217:3000/student/login',
+          'https://grievance-app-backend.herokuapp.com/student/login',
           {
             data: { rollNumber: RollNumber, password: Password },
           }
@@ -93,7 +93,7 @@ const SignIn = () => {
         }
       } catch (err) {
         console.log(err)
-        if (err) {
+        if (err.response) {
           console.log(err.response);
           if (err.response.status === 401) {
             setIsValid(false);

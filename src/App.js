@@ -14,7 +14,7 @@ function App() {
     (async () => {
       // console.log(cookie.get('token'));
       if (cookie.get('token')) {
-        const res = await Axios.get('http://192.168.43.217:3000/auth', {
+        const res = await Axios.get('https://grievance-app-backend.herokuapp.com/auth', {
           headers: {
             token : cookie.get('token')
           },

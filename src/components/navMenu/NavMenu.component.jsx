@@ -1,4 +1,5 @@
 import React from 'react';
+import cookies from 'js-cookie';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
@@ -26,6 +27,7 @@ export default function NavMenu() {
   };
   const doneSignOut = () => {
     handleClose();
+    cookies.remove('token')
     setIsLoggedIn(false);
   };
 
