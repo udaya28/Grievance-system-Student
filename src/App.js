@@ -6,6 +6,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { setLogin } from './context/context';
 import Home from './components/home/Home.component';
 import Axios from 'axios';
+import { BoxLoading } from 'react-loadingg';
 // Axios.defaults.withCredentials = true;
 function App() {
   const [IsLoggedIn, setIsLoggedIn] = useState();
@@ -52,6 +53,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <setLogin.Provider value={setIsLoggedIn}>
         <div className="App">{IsLoggedIn ? <Home /> : <SignIn />}</div>
+        {/* <BoxLoading color="#3a42bb" size="large" /> */}
       </setLogin.Provider>
     </ThemeProvider>
   );

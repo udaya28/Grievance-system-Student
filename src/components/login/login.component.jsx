@@ -12,10 +12,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import { setLogin } from '../../context/context';
-
+import './login.styles.css'
+import ImageHeader from '../imageHeader/ImageHeader';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
+    alignItems:'center',
+    display:"flex",
+    justifyContent:'center'
   },
   image: {
     backgroundImage:
@@ -33,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    height:'auto',
+    width:'100%',
+    justify:'center'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -116,21 +123,12 @@ const SignIn = () => {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <Grid
-          container
-          justify="flex-end"
-          style={{ paddingTop: '10px', paddingRight: '15px' }}
-        >
-          {/* <SwitchTheme /> */}
-        </Grid>
-
+      <Grid item xs={12} sm={8} md={5} className="login-box"  component={Paper} >
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h6">
             Sign in
           </Typography>
           <FormControl className={classes.form} validate="true">
@@ -187,10 +185,6 @@ const SignIn = () => {
             </Button>
           </FormControl>
 
-          <p>
-            For testing purpose <br /> User name : 19CSR118 <br /> Password :
-            123456
-          </p>
         </div>
       </Grid>
     </Grid>
