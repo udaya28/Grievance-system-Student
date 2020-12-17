@@ -1,5 +1,5 @@
 import { Avatar, Grid } from '@material-ui/core';
-import React from 'react';
+import { React, useEffect } from 'react';
 import './profile.css';
 import PersonIcon from '@material-ui/icons/Person';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -10,6 +10,8 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import ContactsIcon from '@material-ui/icons/Contacts';
+import Axios from 'axios';
+import cookie from 'js-cookie'
 const data = {
   firstName: 'Udaya',
   secondName: 'M',
@@ -37,6 +39,20 @@ const IconGroup = ({ head, content, icon }) => {
 };
 
 const Profile = ({ data }) => {
+  useEffect(() => {
+    (async () => {
+      const details = await Axios.get(
+        'https://grievance-app-backend.herokuapp.com/student/details/5fd6f2bac6d1fa27dc5cea11',
+        {
+          headers: {
+            token: cookie.get('token'),
+          },
+        }
+      );
+      console.log(details.data.details['0']);
+    })();
+    return () => {};
+  }, []);
   const {
     firstName,
     secondName,
