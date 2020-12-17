@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
-import { setLogin } from '../../context/context';
+import { setLogin,setLoader } from '../../context/context';
 import './login.styles.css'
 // import ImageHeader from '../imageHeader/ImageHeader';
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +61,7 @@ const SignIn = () => {
   const [IsValid, setIsValid] = useState(true);
   const classes = useStyles();
   const setIsLoggedIn = React.useContext(setLogin);
-
+  const setShowLoader =  React.useContext(setLoader);
   // const handleSignIn = () => {
   //   console.log(RollNumber, Password);
   //   // setIsLoggedIn(true)
@@ -82,12 +82,14 @@ const SignIn = () => {
     setValidationState(true);
     if (Password !== '' && RollNumber !== '') {
       try {
+        setShowLoader(true)
         const res = await Axios.post(
           'https://grievance-app-backend.herokuapp.com/student/login',
           {
             data: { rollNumber: RollNumber, password: Password },
           }
         );
+        setShowLoader(false)
         console.log(res);
         if (res.status === 200) {
           console.log(res.data);
