@@ -41,7 +41,7 @@ const sample = [
     response:
       ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
   },
-];
+]; 
 
 const getDate = (date) => {
   let arr = date.split(' ').slice(1, 5);

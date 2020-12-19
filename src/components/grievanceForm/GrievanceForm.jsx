@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -10,11 +10,27 @@ import SendIcon from '@material-ui/icons/Send';
 import AlertDialog from './../Dialog/Dialog.component';
 import './GrievanceForm.css';
 
-const GrievanceForm = () => {
-  const [Title, setTitle] = useState('');
-  const [Category, setCategory] = useState('');
-  const [Complaint, setComplaint] = useState('');
+const GrievanceForm = ({ details }) => {
+  const [complaintData, setComplaintData] = useState({});
+  const { _id, departmentName, jointYear, gender } = details;
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [complaint, setComplaint] = useState('');
   const [ValidationState, setValidationState] = useState(false);
+  useEffect(() => {
+    setComplaintData({
+      ...complaintData,
+      studentId: _id,
+      departmentName,
+      jointYear,
+      gender,
+      status: 'unseen',
+      response: '',
+    });
+    return () => {};
+  }, [details]);
+
+  // console.log( );
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -25,10 +41,24 @@ const GrievanceForm = () => {
   const handleComplaint = (e) => {
     setComplaint(e.target.value);
   };
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
     setValidationState(true);
-    if (Title !== '' && Category !== '' && Complaint !== '') {
-      console.log(Title, Category, Complaint, Date.now());
+    console.log(title, complaint, category);
+    // console.log({
+    //   ...complaintData,
+    //   title,
+    //   complaint,
+    //   category,
+    //   timeStamp: new Date().toString(),
+    // });
+    if (title !== '' && category !== '' && complaint !== '') {
+      console.log({
+        ...complaintData,
+        title,
+        complaint,
+        category,
+        timeStamp: new Date().toString(),
+      });
       handleOpenDialog();
     }
   };
@@ -73,9 +103,9 @@ const GrievanceForm = () => {
                 id="outlined-basic"
                 label="Title"
                 variant="outlined"
-                value={Title}
+                value={title}
                 onInput={handleTitle}
-                error={ValidationState && Title === ''}
+                error={ValidationState && title === ''}
                 helperText="Short title on your complaint"
               />
             </FormControl>
@@ -87,9 +117,9 @@ const GrievanceForm = () => {
                 label="Category"
                 select
                 variant="outlined"
-                value={Category}
+                value={category}
                 onChange={handleCategory}
-                error={ValidationState && Category === ''}
+                error={ValidationState && category === ''}
                 helperText="Select category of complaint"
               >
                 <MenuItem value="college">College</MenuItem>
@@ -106,9 +136,9 @@ const GrievanceForm = () => {
             multiline
             rows={10}
             onInput={handleComplaint}
-            value={Complaint}
+            value={complaint}
             variant="outlined"
-            error={ValidationState && Complaint === ''}
+            error={ValidationState && complaint === ''}
             helperText="Give summary of your complaint with required details"
           />
         </FormControl>

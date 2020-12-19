@@ -32,8 +32,8 @@ const data = {
 const Home = () => {
   const [studentsData, setStudentsData] = useState({})
   const student = useContext(studentId)
-  console.log(student)
-  console.log(student.id)
+  // console.log(student)
+  // console.log(student.id)
   useEffect(() => {
     (async () => {
 
@@ -74,7 +74,7 @@ const Home = () => {
             <ImageHeader />
             <Container maxWidth="md">
               <Grid container direction="column">
-                <GrievanceForm />
+                <GrievanceForm details={studentsData} />
                 <Activity />
               </Grid>
             </Container>
