@@ -4,13 +4,15 @@ import Home from './components/home/Home.component';
 import SignIn from './components/login/login.component';
 import cookie from 'js-cookie';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { setLogin, setLoader } from './context/context';
+import { setLogin, setLoader, studentId } from './context/context';
 import Axios from 'axios';
 import { BoxLoading } from 'react-loadingg';
 // Axios.defaults.withCredentials = true;
 function App() {
   const [IsLoggedIn, setIsLoggedIn] = useState();
   const [showLoader, setShowLoader] = useState(false);
+  const [studentID, setStudentID] = useState({});
+
   useEffect(() => {
     (async () => {
       // console.log(cookie.get('token'));
@@ -26,6 +28,7 @@ function App() {
         );
         setShowLoader(false);
         if (res.status === 200) {
+          setStudentID({ ...student, id: res.data.id });
           setIsLoggedIn(true);
         } else {
           setIsLoggedIn(false);
@@ -37,12 +40,6 @@ function App() {
     })();
   }, []);
 
-  // useEffect(() => {
-  //   let bool = IsLoggedIn ? 'true' : 'false';
-  //   localStorage.setItem('isLoggedIn', bool);
-  //   return () => {};
-  // }, [IsLoggedIn]);
-
   const theme = createMuiTheme({
     palette: {
       type: 'light',
@@ -52,16 +49,20 @@ function App() {
       },
     },
   });
-  // filter: blur(8px);
-  // -webkit-filter: blur(8px);
+  let student = { id:studentID.id, setID:setStudentID };
+  // console.log(student)
+  // console.log(studentID)
+
   return (
     <ThemeProvider theme={theme}>
       <setLogin.Provider value={setIsLoggedIn}>
         <setLoader.Provider value={setShowLoader}>
-          <div className="App">
-            {IsLoggedIn ? <Home /> : <SignIn />}
-            {showLoader && <BoxLoading color="#3a42bb" size="large" />}
-          </div>
+          <studentId.Provider value={student}>
+            <div className="App">
+              {IsLoggedIn ? <Home /> : <SignIn />}
+              {showLoader && <BoxLoading color="#3a42bb" size="large" />}
+            </div>
+          </studentId.Provider>
         </setLoader.Provider>
       </setLogin.Provider>
     </ThemeProvider>

@@ -38,7 +38,6 @@ const IconGroup = ({ head, content, icon }) => {
 };
 
 const Profile = ({ data }) => {
-  console.log(data.departmentName)
   
   const {
     firstName,

@@ -1,4 +1,4 @@
-import {React ,useEffect,useState}from 'react';
+import {React ,useEffect,useState,useContext}from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -13,6 +13,7 @@ import cookie from 'js-cookie';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from '../profile/Profile';
 import Activity from '../activity/Activity';
+import { studentId } from '../../context/context';
 const data = {
   firstName: 'Udaya',
   secondName: 'M',
@@ -30,11 +31,14 @@ const data = {
 
 const Home = () => {
   const [studentsData, setStudentsData] = useState({})
+  const student = useContext(studentId)
+  console.log(student)
+  console.log(student.id)
   useEffect(() => {
     (async () => {
 
       const details = await Axios.get(
-        'https://grievance-app-backend.herokuapp.com/student/details/5fd6f2bac6d1fa27dc5cea11',
+        `https://grievance-app-backend.herokuapp.com/student/details/${student.id}`,
         {
           headers: {
             token: cookie.get('token'),
@@ -43,7 +47,7 @@ const Home = () => {
       );
       if(details.status === 200){
         setStudentsData(details.data.details['0'])
-        console.log(details.data.details['0']);
+        // console.log(details.data.details['0']);
       }
 
     })();

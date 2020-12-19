@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
-import { setLogin,setLoader } from '../../context/context';
+import { setLogin,setLoader,studentId } from '../../context/context';
 import './login.styles.css'
 // import ImageHeader from '../imageHeader/ImageHeader';
 const useStyles = makeStyles((theme) => ({
@@ -62,6 +62,7 @@ const SignIn = () => {
   const classes = useStyles();
   const setIsLoggedIn = React.useContext(setLogin);
   const setShowLoader =  React.useContext(setLoader);
+  const student = React.useContext(studentId)
 
   const handleSignIn = async () => {
     console.log(RollNumber, Password);
@@ -78,6 +79,7 @@ const SignIn = () => {
         setShowLoader(false)
         console.log(res);
         if (res.status === 200) {
+          student.setID({...student,id:res.data.id})
           console.log(res.data);
           let date = 1/48;
           // date = date.toUTCString();
@@ -93,6 +95,7 @@ const SignIn = () => {
           if (err.response.status === 401) {
             setIsValid(false);
             setTimeout(() => setIsValid(true), 5000);
+            setShowLoader(false)
           }
         }
       }
