@@ -31,6 +31,7 @@ const data = {
 
 const Home = () => {
   const [studentsData, setStudentsData] = useState({})
+  const [complaintsData , setComplaintsData] = useState([])
   const student = useContext(studentId)
   // console.log(student)
   // console.log(student.id)
@@ -45,14 +46,25 @@ const Home = () => {
           },
         }
       );
+      const complaint = await Axios.get(
+        `https://grievance-app-backend.herokuapp.com/student/complaint/${student.id}`,
+        {
+          headers: {
+            token: cookie.get('token'),
+          },
+        }
+      );
       if(details.status === 200){
         setStudentsData(details.data.details['0'])
-        // console.log(details.data.details['0']);
+      }
+      if(complaint.status === 200){
+        setComplaintsData(complaint.data.data.complaints)
+        console.log(complaint.data.data.complaints)
       }
 
     })();
-    return () => {};
-  }, []);
+  },[]);
+
 
   return (
     <Router>
@@ -75,7 +87,7 @@ const Home = () => {
             <Container maxWidth="md">
               <Grid container direction="column">
                 <GrievanceForm details={studentsData} />
-                <Activity />
+                <Activity data={complaintsData} />
               </Grid>
             </Container>
           </Route>
