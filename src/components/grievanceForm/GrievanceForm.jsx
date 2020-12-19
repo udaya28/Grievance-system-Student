@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
 import AlertDialog from './../Dialog/Dialog.component';
 import './GrievanceForm.css';
-
+import Axios from 'axios';
+import { setLoader } from '../../context/context';
+import cookie from 'js-cookie';
 const GrievanceForm = ({ details }) => {
   const [complaintData, setComplaintData] = useState({});
   const { _id, departmentName, jointYear, gender } = details;
@@ -17,6 +19,7 @@ const GrievanceForm = ({ details }) => {
   const [category, setCategory] = useState('');
   const [complaint, setComplaint] = useState('');
   const [ValidationState, setValidationState] = useState(false);
+  const setShowLoader = React.useContext(setLoader);
   useEffect(() => {
     setComplaintData({
       ...complaintData,
@@ -30,8 +33,6 @@ const GrievanceForm = ({ details }) => {
     return () => {};
   }, [details]);
 
-  // console.log( );
-
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -43,14 +44,12 @@ const GrievanceForm = ({ details }) => {
   };
   const handleFormSubmit = async () => {
     setValidationState(true);
-    console.log(title, complaint, category);
-    // console.log({
-    //   ...complaintData,
-    //   title,
-    //   complaint,
-    //   category,
-    //   timeStamp: new Date().toString(),
-    // });
+    if (title !== '' && category !== '' && complaint !== '') {
+      handleOpenDialog();
+    }
+  };
+
+  const doneSubmit = async () => {
     if (title !== '' && category !== '' && complaint !== '') {
       console.log({
         ...complaintData,
@@ -59,16 +58,44 @@ const GrievanceForm = ({ details }) => {
         category,
         timeStamp: new Date().toString(),
       });
-      handleOpenDialog();
-    }
-  };
 
-  const doneSubmit = () => {
-    setTitle('');
-    setCategory('');
-    setComplaint('');
-    setOpenDialog(false);
-    setValidationState(false);
+      try {
+        setShowLoader(true);
+        const res = await Axios.post(
+          'https://grievance-app-backend.herokuapp.com/student/complaint',
+          {
+            data: {
+              ...complaintData,
+              title,
+              complaint,
+              category,
+              timeStamp: new Date().toString(),
+            },
+          },{
+            headers: {
+              token: cookie.get('token'),
+            },
+          }
+        );
+        setShowLoader(false);
+        if (res.status === 201) {
+          setTitle('');
+          setCategory('');
+          setComplaint('');
+          setOpenDialog(false);
+          setValidationState(false);
+          console.log('success');
+        }
+
+      } catch (err) {
+
+        console.log(err);
+
+      }finally{
+        handleCloseDialog()
+
+      }
+    }
   };
 
   //dialog
