@@ -81,7 +81,7 @@ const SignIn = () => {
         if (res.status === 200) {
           student.setID({...student,id:res.data.id})
           console.log(res.data);
-          let date = 1/48;
+          let date = 1/48;//30 min
           // date = date.toUTCString();
           cookies.set('token', res.data.token, {
             expires: date,
