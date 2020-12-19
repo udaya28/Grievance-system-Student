@@ -50,6 +50,7 @@ const GrievanceForm = ({ details }) => {
   };
 
   const doneSubmit = async () => {
+    handleCloseDialog();
     if (title !== '' && category !== '' && complaint !== '') {
       console.log({
         ...complaintData,
@@ -71,14 +72,16 @@ const GrievanceForm = ({ details }) => {
               category,
               timeStamp: new Date().toString(),
             },
-          },{
+          },
+          {
             headers: {
               token: cookie.get('token'),
             },
           }
         );
-        setShowLoader(false);
+
         if (res.status === 201) {
+          setShowLoader(false);
           setTitle('');
           setCategory('');
           setComplaint('');
@@ -86,14 +89,9 @@ const GrievanceForm = ({ details }) => {
           setValidationState(false);
           console.log('success');
         }
-
+        setShowLoader(false);
       } catch (err) {
-
         console.log(err);
-
-      }finally{
-        handleCloseDialog()
-
       }
     }
   };
