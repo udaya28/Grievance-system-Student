@@ -62,20 +62,6 @@ const SignIn = () => {
   const classes = useStyles();
   const setIsLoggedIn = React.useContext(setLogin);
   const setShowLoader =  React.useContext(setLoader);
-  // const handleSignIn = () => {
-  //   console.log(RollNumber, Password);
-  //   // setIsLoggedIn(true)
-  //   setValidationState(true);
-  //   if (Password !== '' && RollNumber !== '') {
-  //     if (RollNumber === '19CSR118' && Password === '1234') {
-  //       setTimeout(() => setIsLoggedIn(true), 1000);
-  //     } else {
-  //       console.log('Invalid Input');
-  //       setIsValid(false);
-  //       setTimeout(() => setIsValid(true), 5000);
-  //     }
-  //   }
-  // };
 
   const handleSignIn = async () => {
     console.log(RollNumber, Password);

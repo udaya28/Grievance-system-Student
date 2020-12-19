@@ -1,5 +1,5 @@
 import { Avatar, Grid } from '@material-ui/core';
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import './profile.css';
 import PersonIcon from '@material-ui/icons/Person';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -10,19 +10,18 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import ContactsIcon from '@material-ui/icons/Contacts';
-import Axios from 'axios';
-import cookie from 'js-cookie'
-const data = {
-  firstName: 'Udaya',
-  secondName: 'M',
-  rollNumber: '19CSR118',
-  gender: 'male',
-  joinYear: 2019,
-  department: 'CSE',
-  totalComplaintsMade: 0,
-  totalComplaintsClosed: 0,
-  dateOfBirth: '28-01-2002',
-};
+
+// const data = {
+//   firstName: 'Udaya',
+//   secondName: 'M',
+//   rollNumber: '19CSR118',
+//   gender: 'male',
+//   joinYear: 2019,
+//   department: 'CSE',
+//   totalComplaintsMade: 0,
+//   totalComplaintsClosed: 0,
+//   dateOfBirth: '28-01-2002',
+// };
 
 const IconGroup = ({ head, content, icon }) => {
   return (
@@ -39,30 +38,19 @@ const IconGroup = ({ head, content, icon }) => {
 };
 
 const Profile = ({ data }) => {
-  useEffect(() => {
-    (async () => {
-      const details = await Axios.get(
-        'https://grievance-app-backend.herokuapp.com/student/details/5fd6f2bac6d1fa27dc5cea11',
-        {
-          headers: {
-            token: cookie.get('token'),
-          },
-        }
-      );
-      console.log(details.data.details['0']);
-    })();
-    return () => {};
-  }, []);
+  console.log(data.departmentName)
+  
   const {
     firstName,
     secondName,
-    joinYear,
-    department,
+    jointYear,
+    departmentName,
     dateOfBirth,
     rollNumber,
     totalComplaintsMade,
     totalComplaintsClosed,
   } = data;
+
   return (
     <Grid
       container
@@ -99,14 +87,14 @@ const Profile = ({ data }) => {
           <Grid item xs={6} sm={3}>
             <IconGroup
               head="Batch"
-              content={`${joinYear} - ${joinYear + 4}`}
+              content={`${jointYear} - ${(jointYear + 4)}`}
               icon={<BallotIcon />}
             />
           </Grid>
           <Grid item xs={6} sm={3}>
             <IconGroup
               head="Department"
-              content={department}
+              content={departmentName}
               icon={<BookIcon />}
             />
           </Grid>

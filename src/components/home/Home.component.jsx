@@ -1,4 +1,4 @@
-import React from 'react';
+import {React ,useEffect,useState}from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -7,7 +7,8 @@ import ImageHeader from '../imageHeader/ImageHeader';
 import Details from './../details/Details.component';
 import GrievanceForm from '../grievanceForm/GrievanceForm';
 import Footer from '../footer/Footer';
-
+import Axios from 'axios';
+import cookie from 'js-cookie';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from '../profile/Profile';
@@ -24,7 +25,31 @@ const data = {
   dateOfBirth: '28-01-2002',
 };
 
+
+
+
 const Home = () => {
+  const [studentsData, setStudentsData] = useState({})
+  useEffect(() => {
+    (async () => {
+
+      const details = await Axios.get(
+        'https://grievance-app-backend.herokuapp.com/student/details/5fd6f2bac6d1fa27dc5cea11',
+        {
+          headers: {
+            token: cookie.get('token'),
+          },
+        }
+      );
+      if(details.status === 200){
+        setStudentsData(details.data.details['0'])
+        console.log(details.data.details['0']);
+      }
+
+    })();
+    return () => {};
+  }, []);
+
   return (
     <Router>
       <Paper>
@@ -37,7 +62,7 @@ const Home = () => {
           </Route>
           <Route exact path="/Grievance-system-Student/profile">
             <Container maxWidth="md">
-              <Profile data={data} />
+              <Profile data={studentsData} />
             </Container>
           </Route>
 
