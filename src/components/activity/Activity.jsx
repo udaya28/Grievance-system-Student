@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import ActivityDialog from '../ActivityDialog/ActivityDialog';
 import './Activity.css';
- 
+
 const sample = [
   {
     title: 'Complaint about online',
@@ -41,7 +41,7 @@ const sample = [
     response:
       ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
   },
-]; 
+];
 
 const getDate = (date) => {
   let arr = date.split(' ').slice(1, 5);
@@ -104,7 +104,7 @@ const ActivityCard = ({ data, handleClickOpen }) => {
   );
 };
 
-const Activity = ({data}) => {
+const Activity = ({ data }) => {
   // console.log(data)
   const [open, setOpen] = useState(false);
   const [dialogData, setDialogData] = useState({});
@@ -120,17 +120,25 @@ const Activity = ({data}) => {
   };
   return (
     <div>
-      <h1 className="activity-head">Previous Activity</h1>
-      <Grid container spacing={1} style={{ padding: '10px 5px 30px 5px' }}>
-        {[...data].reverse().map((data, index) => (
-          <ActivityCard
-            data={data}
-            key={index}
-            handleClickOpen={handleClickOpen}
+      {data.length !== 0 ? (
+        <>
+          <h1 className="activity-head">Previous Activity</h1>
+          <Grid container spacing={1} style={{ padding: '10px 5px 30px 5px' }}>
+            {[...data].reverse().map((data, index) => (
+              <ActivityCard
+                data={data}
+                key={index}
+                handleClickOpen={handleClickOpen}
+              />
+            ))}
+          </Grid>
+          <ActivityDialog
+            handleClose={handleClose}
+            open={open}
+            data={dialogData}
           />
-        ))}
-      </Grid>
-      <ActivityDialog handleClose={handleClose} open={open} data={dialogData} />
+        </>
+      ) : null}
     </div>
   );
 };
