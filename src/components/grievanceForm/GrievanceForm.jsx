@@ -12,6 +12,9 @@ import './GrievanceForm.css';
 import Axios from 'axios';
 import { setLoader } from '../../context/context';
 import cookie from 'js-cookie';
+import Snackbar from '@material-ui/core/Snackbar';
+
+
 const GrievanceForm = ({ details }) => {
   const [complaintData, setComplaintData] = useState({});
   const { _id, departmentName, jointYear, gender } = details;
@@ -19,6 +22,7 @@ const GrievanceForm = ({ details }) => {
   const [category, setCategory] = useState('');
   const [complaint, setComplaint] = useState('');
   const [ValidationState, setValidationState] = useState(false);
+  const [openSnackBar, setOpenSnackBar] = useState(false);
   const setShowLoader = React.useContext(setLoader);
   useEffect(() => {
     setComplaintData({
@@ -88,6 +92,7 @@ const GrievanceForm = ({ details }) => {
           setOpenDialog(false);
           setValidationState(false);
           console.log('success');
+          setOpenSnackBar(true)
         }
         setShowLoader(false);
       } catch (err) {
@@ -186,6 +191,14 @@ const GrievanceForm = ({ details }) => {
         handleConfirm={doneSubmit}
         confirmButtonColorSecondary={false}
       />
+      <Snackbar
+        open={openSnackBar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackBar(false)}
+        message="posted complaint successfully"
+      />
+        
+      
     </div>
   );
 };

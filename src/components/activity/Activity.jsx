@@ -118,9 +118,6 @@ const Activity = ({data}) => {
   const handleClose = () => {
     setOpen(false);
   };
-  // let dataReverse = Object.assign({},data)
-  // let dataReverse = data.reverse();
-  // console.log(dataReverse)
   return (
     <div>
       <h1 className="activity-head">Previous Activity</h1>
