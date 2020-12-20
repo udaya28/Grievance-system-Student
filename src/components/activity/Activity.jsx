@@ -118,12 +118,14 @@ const Activity = ({data}) => {
   const handleClose = () => {
     setOpen(false);
   };
-
+  // let dataReverse = Object.assign({},data)
+  // let dataReverse = data.reverse();
+  // console.log(dataReverse)
   return (
     <div>
       <h1 className="activity-head">Previous Activity</h1>
       <Grid container spacing={1} style={{ padding: '10px 5px 30px 5px' }}>
-        {data.map((data, index) => (
+        {[...data].reverse().map((data, index) => (
           <ActivityCard
             data={data}
             key={index}
