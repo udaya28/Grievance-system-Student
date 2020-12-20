@@ -51,13 +51,14 @@ const getDate = (date) => {
   let min = timeArr[1];
   let day = arr.slice(0, 3);
   let dayStr = day.join(' ');
-  if (timeArr[0] >= 12) {
+  if (timeArr[0] > 12) {
     AMPMstr = 'PM';
     hour %= 12;
   }
   let time = `${hour > 9 ? hour : '0' + hour}:${
     min > 9 ? min : '0' + min
   } ${AMPMstr}`;
+  // console.log(dayStr + ' ' + time)
   return `${dayStr + ' ' + time}`;
 };
 
