@@ -15,7 +15,7 @@ import cookie from 'js-cookie';
 import Snackbar from '@material-ui/core/Snackbar';
 
 
-const GrievanceForm = ({ details }) => {
+const GrievanceForm = ({ details,refreshComplaint }) => {
   const [complaintData, setComplaintData] = useState({});
   const { _id, departmentName, jointYear, gender } = details;
   const [title, setTitle] = useState('');
@@ -56,13 +56,13 @@ const GrievanceForm = ({ details }) => {
   const doneSubmit = async () => {
     handleCloseDialog();
     if (title !== '' && category !== '' && complaint !== '') {
-      console.log({
-        ...complaintData,
-        title,
-        complaint,
-        category,
-        timeStamp: new Date().toString(),
-      });
+      // console.log({
+      //   ...complaintData,
+      //   title,
+      //   complaint,
+      //   category,
+      //   timeStamp: new Date().toString(),
+      // });
 
       try {
         setShowLoader(true);
@@ -93,6 +93,7 @@ const GrievanceForm = ({ details }) => {
           setValidationState(false);
           console.log('success');
           setOpenSnackBar(true)
+          refreshComplaint();
         }
         setShowLoader(false);
       } catch (err) {
@@ -197,8 +198,6 @@ const GrievanceForm = ({ details }) => {
         onClose={() => setOpenSnackBar(false)}
         message="posted complaint successfully"
       />
-        
-      
     </div>
   );
 };
