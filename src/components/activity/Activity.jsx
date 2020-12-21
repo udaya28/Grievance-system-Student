@@ -3,45 +3,45 @@ import Grid from '@material-ui/core/Grid';
 import ActivityDialog from '../ActivityDialog/ActivityDialog';
 import './Activity.css';
 
-const sample = [
-  {
-    title: 'Complaint about online',
-    timeStamp: 'Fri Dec 04 2020 19:21:33 GMT+0530 (India Standard Time)',
-    status: 'unseen', //  "unseen" | "replayed",
-    category: 'hostel', // "hostel"
-    complaint:
-      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response: '',
-  },
-  {
-    title: 'Need information about Bus transport',
-    timeStamp: 'Fri Dec 04 2020 20:09:31 GMT+0530 (India Standard Time)',
-    status: 'unseen', //  "unseen" | "replayed",
-    category: 'college', // "hostel"
-    complaint:
-      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response: '',
-  },
-  {
-    title: 'Complaint about hostel food',
-    timeStamp: 'Fri Dec 04 2020 22:45:31 GMT+0530 (India Standard Time)',
-    status: 'seen', //  "unseen" | "replayed",
-    category: 'hostel', // "hostel"
-    complaint:
-      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response: '',
-  },
-  {
-    title: 'About online exam portal',
-    timeStamp: 'Fri Dec 04 2020 02:45:31 GMT+0530 (India Standard Time)',
-    status: 'replayed', //  "unseen" | "replayed",
-    category: 'college', // "hostel"
-    complaint:
-      ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
-    response:
-      ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
-  },
-];
+// const sample = [
+//   {
+//     title: 'Complaint about online',
+//     timeStamp: 'Fri Dec 04 2020 19:21:33 GMT+0530 (India Standard Time)',
+//     status: 'unseen', //  "unseen" | "replayed",
+//     category: 'hostel', // "hostel"
+//     complaint:
+//       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
+//     response: '',
+//   },
+//   {
+//     title: 'Need information about Bus transport',
+//     timeStamp: 'Fri Dec 04 2020 20:09:31 GMT+0530 (India Standard Time)',
+//     status: 'unseen', //  "unseen" | "replayed",
+//     category: 'college', // "hostel"
+//     complaint:
+//       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
+//     response: '',
+//   },
+//   {
+//     title: 'Complaint about hostel food',
+//     timeStamp: 'Fri Dec 04 2020 22:45:31 GMT+0530 (India Standard Time)',
+//     status: 'seen', //  "unseen" | "replayed",
+//     category: 'hostel', // "hostel"
+//     complaint:
+//       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
+//     response: '',
+//   },
+//   {
+//     title: 'About online exam portal',
+//     timeStamp: 'Fri Dec 04 2020 02:45:31 GMT+0530 (India Standard Time)',
+//     status: 'replayed', //  "unseen" | "replayed",
+//     category: 'college', // "hostel"
+//     complaint:
+//       ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut omnis similique debitis distinctio nobis. Perferendis voluptate, obcaecati deleniti nostrum impedit doloribus quod soluta. Eos et corporis consequuntur id ipsa impedit?',
+//     response:
+//       ' Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci dolorum blanditiis odio, iste veniam, iusto nemo veritatis quas aliquam quibusdam accusantium! Aut hic earum distinctio nostrum autem cumque praesentium repellendus!',
+//   },
+// ];
 
 const getDate = (date) => {
   let arr = date.split(' ').slice(1, 5);

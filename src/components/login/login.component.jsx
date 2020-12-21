@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Axios from 'axios';
 import cookies from 'js-cookie';
 import Avatar from '@material-ui/core/Avatar';
@@ -11,15 +11,15 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
-import { setLogin,setLoader,studentId } from '../../context/context';
-import './login.styles.css'
+import { setLogin, setLoader, studentId } from '../../context/context';
+import './login.styles.css';
 // import ImageHeader from '../imageHeader/ImageHeader';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
-    alignItems:'center',
-    display:"flex",
-    justifyContent:'center'
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
   },
   image: {
     backgroundImage:
@@ -37,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height:'auto',
-    width:'100%',
-    justify:'center'
+    height: 'auto',
+    width: '100%',
+    justify: 'center',
   },
   avatar: {
     margin: theme.spacing(1),
@@ -60,41 +60,41 @@ const SignIn = () => {
   const [ValidationState, setValidationState] = useState(false);
   const [IsValid, setIsValid] = useState(true);
   const classes = useStyles();
-  const setIsLoggedIn = React.useContext(setLogin);
-  const setShowLoader =  React.useContext(setLoader);
-  const student = React.useContext(studentId)
+  const setIsLoggedIn = useContext(setLogin);
+  const setShowLoader = useContext(setLoader);
+  const student = useContext(studentId);
 
   const handleSignIn = async () => {
     console.log(RollNumber, Password);
     setValidationState(true);
     if (Password !== '' && RollNumber !== '') {
       try {
-        setShowLoader(true)
+        setShowLoader(true);
         const res = await Axios.post(
           'https://grievance-app-backend.herokuapp.com/student/login',
           {
             data: { rollNumber: RollNumber, password: Password },
           }
         );
-        setShowLoader(false)
+        setShowLoader(false);
         // console.log(res);
         if (res.status === 200) {
-          student.setID({...student,id:res.data.id})
+          student.setID({ ...student, id: res.data.id });
           // console.log(res.data);
-          let date = 1/48;//30 min
+          let date = 1 / 48; //30 min
           cookies.set('token', res.data.token, {
             expires: date,
           });
           setIsLoggedIn(true);
         }
       } catch (err) {
-        console.log(err)
+        console.log(err);
         if (err.response) {
           console.log(err.response);
           if (err.response.status === 401) {
             setIsValid(false);
             setTimeout(() => setIsValid(true), 5000);
-            setShowLoader(false)
+            setShowLoader(false);
           }
         }
       }
@@ -113,7 +113,7 @@ const SignIn = () => {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={12} sm={8} md={5} className="login-box"  component={Paper} >
+      <Grid item xs={12} sm={8} md={5} className="login-box" component={Paper}>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -174,7 +174,6 @@ const SignIn = () => {
               Sign In
             </Button>
           </FormControl>
-
         </div>
       </Grid>
     </Grid>

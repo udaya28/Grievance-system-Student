@@ -38,7 +38,6 @@ const IconGroup = ({ head, content, icon }) => {
 };
 
 const Profile = ({ data }) => {
-  
   const {
     firstName,
     secondName,
@@ -86,7 +85,7 @@ const Profile = ({ data }) => {
           <Grid item xs={6} sm={3}>
             <IconGroup
               head="Batch"
-              content={`${jointYear} - ${(jointYear + 4)}`}
+              content={`${jointYear} - ${jointYear + 4}`}
               icon={<BallotIcon />}
             />
           </Grid>

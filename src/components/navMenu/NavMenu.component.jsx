@@ -27,7 +27,7 @@ export default function NavMenu() {
   };
   const doneSignOut = () => {
     handleClose();
-    cookies.remove('token')
+    cookies.remove('token');
     setIsLoggedIn(false);
   };
 

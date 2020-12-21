@@ -49,7 +49,7 @@ function App() {
       },
     },
   });
-  let student = { id:studentID.id, setID:setStudentID };
+  let student = { id: studentID.id, setID: setStudentID };
   // console.log(student)
   // console.log(studentID)
 

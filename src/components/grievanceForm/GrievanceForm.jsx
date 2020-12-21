@@ -14,8 +14,7 @@ import { setLoader } from '../../context/context';
 import cookie from 'js-cookie';
 import Snackbar from '@material-ui/core/Snackbar';
 
-
-const GrievanceForm = ({ details,refreshComplaint }) => {
+const GrievanceForm = ({ details, refreshComplaint }) => {
   const [complaintData, setComplaintData] = useState({});
   const { _id, departmentName, jointYear, gender } = details;
   const [title, setTitle] = useState('');
@@ -92,7 +91,7 @@ const GrievanceForm = ({ details,refreshComplaint }) => {
           setOpenDialog(false);
           setValidationState(false);
           console.log('success');
-          setOpenSnackBar(true)
+          setOpenSnackBar(true);
           refreshComplaint();
         }
         setShowLoader(false);
