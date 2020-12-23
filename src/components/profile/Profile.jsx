@@ -37,7 +37,7 @@ const IconGroup = ({ head, content, icon }) => {
   );
 };
 
-const Profile = ({ data }) => {
+const Profile = ({ data, complaints }) => {
   const {
     firstName,
     secondName,
@@ -45,10 +45,15 @@ const Profile = ({ data }) => {
     departmentName,
     dateOfBirth,
     rollNumber,
-    totalComplaintsMade,
-    totalComplaintsClosed,
   } = data;
-
+  const totalComplaintsMade = complaints.length;
+  const countResponses = (count, current) => {
+    if (current.response !== '') {
+      return count + 1;
+    }
+    return count;
+  };
+  const totalComplaintsClosed = [...complaints].reduce(countResponses,0);
   return (
     <Grid
       container

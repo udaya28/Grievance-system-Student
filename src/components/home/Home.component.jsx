@@ -14,24 +14,22 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Profile from '../profile/Profile';
 import Activity from '../activity/Activity';
 import { studentId } from '../../context/context';
-const data = {
-  firstName: 'Udaya',
-  secondName: 'M',
-  rollNumber: '19CSR118',
-  gender: 'male',
-  joinYear: 2019,
-  department: 'CSE',
-  totalComplaintsMade: 0,
-  totalComplaintsClosed: 0,
-  dateOfBirth: '28-01-2002',
-};
+// const data = {
+//   firstName: 'Udaya',
+//   secondName: 'M',
+//   rollNumber: '19CSR118',
+//   gender: 'male',
+//   joinYear: 2019,
+//   department: 'CSE',
+//   totalComplaintsMade: 0,
+//   totalComplaintsClosed: 0,
+//   dateOfBirth: '28-01-2002',
+// };
 
 const Home = () => {
   const [studentsData, setStudentsData] = useState({});
   const [complaintsData, setComplaintsData] = useState([]);
   const student = useContext(studentId);
-  // console.log(student)
-  // console.log(student.id)
   useEffect(() => {
     (async () => {
       const details = await Axios.get(
@@ -46,19 +44,8 @@ const Home = () => {
         setStudentsData(details.data.details['0']);
       }
       getComplaint();
-      // const complaint = await Axios.get(
-      //   `https://grievance-app-backend.herokuapp.com/student/complaint/${student.id}`,
-      //   {
-      //     headers: {
-      //       token: cookie.get('token'),
-      //     },
-      //   }
-      // );
-      // if(complaint.status === 200){
-      //   setComplaintsData(complaint.data.data.complaints)
-      //   // console.log(complaint.data.data.complaints)
-      // }
     })();
+    // eslint-disable-next-line
   }, []);
 
   const getComplaint = async () => {
@@ -75,6 +62,8 @@ const Home = () => {
     }
   };
 
+
+
   return (
     <Router>
       <Paper>
@@ -87,7 +76,7 @@ const Home = () => {
           </Route>
           <Route exact path="/Grievance-system-Student/profile">
             <Container maxWidth="md">
-              <Profile data={studentsData} />
+              <Profile data={studentsData} complaints={complaintsData}  />
             </Container>
           </Route>
 
