@@ -65,7 +65,7 @@ const SignIn = () => {
   const student = useContext(studentId);
 
   const handleSignIn = async () => {
-    console.log(RollNumber, Password);
+    // console.log(RollNumber, Password);
     setValidationState(true);
     if (Password !== '' && RollNumber !== '') {
       try {
