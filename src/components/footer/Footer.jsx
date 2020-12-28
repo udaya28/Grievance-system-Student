@@ -16,7 +16,7 @@ const Footer = () => {
         </Grid>
         <Grid item sm={6} xs={12}>
           <Typography variant="caption">
-            Developed By Anonymous with ❤️
+            Developed By Udaya with ❤️
           </Typography>
         </Grid>
       </Grid>
