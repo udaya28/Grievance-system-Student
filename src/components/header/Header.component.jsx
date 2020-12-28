@@ -22,10 +22,6 @@ const Header = () => {
             <Grid container justify="space-between" alignItems="center">
               <NavLink
                 to="/Grievance-system-Student/"
-                // activeClassName="selected"
-                // activeStyle={{
-                //   fontWeight: 'bold',
-                // }}
                 style={{
                   padding: '0px 10px',
                   fontWeight: 'bold',
@@ -44,13 +40,8 @@ const Header = () => {
               >
                 About
               </NavLink>
-              {/* <SwitchTheme /> */}
               <NavMenu />
             </Grid>
-
-            {/* <Grid item direction="row" alignItems="center">
-                
-            </Grid> */}
           </Grid>
         </Grid>
       </Toolbar>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useContext} from 'react';
 import cookies from 'js-cookie';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -10,9 +10,10 @@ import { setLogin } from './../../context/context';
 import { Link } from 'react-router-dom';
 import AlertDialog from './../Dialog/Dialog.component';
 
+
 export default function NavMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const setIsLoggedIn = React.useContext(setLogin);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const setIsLoggedIn = useContext(setLogin);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,7 +37,7 @@ export default function NavMenu() {
   };
 
   //dialog
-  const [OpenDialog, setOpenDialog] = React.useState(false);
+  const [OpenDialog, setOpenDialog] = useState(false);
 
   const handleOpenDialog = () => {
     setAnchorEl(null);
