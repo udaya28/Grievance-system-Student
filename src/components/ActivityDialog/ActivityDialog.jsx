@@ -23,6 +23,7 @@ const ActivityDialog = ({ open, handleClose, data }) => {
       <Dialog
         open={open}
         onClose={handleClose}
+        fullWidth={true}
         scroll="paper"
         aria-labelledby="scroll-dialog-title"
         aria-describedby="scroll-dialog-description"
