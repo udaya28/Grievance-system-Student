@@ -41,7 +41,7 @@ const ActivityDialog = ({ open, handleClose, data }) => {
             {data.response !== ''
               ? [
                   <h1 className="dialogHeading">Response</h1>,
-                  <p style={{ textAlign: 'justify' }}>{data.complaint}</p>,
+                  <p style={{ textAlign: 'justify' }}>{data.response}</p>,
                 ]
               : null}
             {/* [<h1 className="dialogHeading">No response received from committee </h1>] */}
