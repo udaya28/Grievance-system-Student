@@ -9,8 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
 import AlertDialog from './../Dialog/Dialog.component';
 import './GrievanceForm.css';
-import Axios from 'axios';
 import { setLoader } from '../../context/context';
+import Axios from 'axios';
 import cookie from 'js-cookie';
 import Snackbar from '@material-ui/core/Snackbar';
 
