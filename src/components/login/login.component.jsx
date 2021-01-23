@@ -20,17 +20,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'center',
-  },
-  image: {
-    backgroundImage:
-      'url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80")',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light'
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    flexDirection: 'row',
   },
   paper: {
     margin: theme.spacing(5, 4),
@@ -115,11 +105,20 @@ const SignIn = () => {
       <CssBaseline />
       <Grid item xs={12} sm={8} md={5} className="login-box" component={Paper}>
         <div className={classes.paper}>
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{ marginBottom: '0px' }}
+          >
+            <b>
+              <p>Online Grievance System</p>
+            </b>
+          </Typography>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h6">
-            Sign in
+            Students Login
           </Typography>
           <FormControl className={classes.form} validate="true">
             <TextField
