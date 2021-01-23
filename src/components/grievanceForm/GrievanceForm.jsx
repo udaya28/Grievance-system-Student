@@ -93,8 +93,12 @@ const GrievanceForm = ({ details, refreshComplaint }) => {
           console.log('success');
           setOpenSnackBar(true);
           refreshComplaint();
+        }else{
+          setShowLoader(false);
+          console.log('fail to post');
         }
-        setShowLoader(false);
+        
+        // setShowLoader(false);
       } catch (err) {
         console.log(err);
       }
@@ -111,7 +115,7 @@ const GrievanceForm = ({ details, refreshComplaint }) => {
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
-
+ 
   return (
     <div className="form">
       <h1 className="form-head">Post Your Grievance</h1>
